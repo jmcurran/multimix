@@ -17,7 +17,7 @@ testScript = function(){
   
   coltype = c("numeric", "numeric", "factor", "factor", "numeric", "numeric", "factor", 
   "numeric", "numeric", "numeric", "numeric", "factor")
-  cancer = read.table(system.file("extdata", "cancer11.dat", package = "multimix"), 
+  cancer = read.table(system.file("extdata", "cancer11a.dat", package = "multimix"), 
                       header = FALSE, colClasses = coltype)
   
   Stage = scan(system.file("extdata", "stage.txt",  package = "multimix"))
