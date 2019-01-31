@@ -1,3 +1,11 @@
+#' first.Z.to.P
+#'
+#' @param D 
+#'
+#' @return
+#' @export
+#'
+#' @examples
 first.Z.to.P <- function(D) {
  with(D, {
   Z <- model.matrix(~ 0 + Init_grp)

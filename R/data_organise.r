@@ -1,3 +1,16 @@
+#' data_organise
+#'
+#' @param dframe 
+#' @param Init_grp 
+#' @param cdep 
+#' @param lcdep 
+#' @param minpstar 
+#' @param nIt 
+#'
+#' @return
+#' @export
+#'
+#' @examples
 data_organise <- function(dframe, Init_grp, cdep=NULL, lcdep=NULL,
                           minpstar = 1e-9, nIt = 60) {
   Init_grp <- as.factor(Init_grp)              

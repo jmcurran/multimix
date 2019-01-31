@@ -1,3 +1,12 @@
+#' P.to.Z
+#'
+#' @param P 
+#' @param D 
+#'
+#' @return
+#' @export
+#'
+#' @examples
 P.to.Z <- function(P, D) {
     with(c(P, D), {
         ollq <- matrix(0, nrow=n, ncol=q)
