@@ -15,4 +15,3 @@ right <- function(N) {
 left <- function(N) {
    N - pair.index(1, right(N)) + 1
 }
-
