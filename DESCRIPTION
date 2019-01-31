@@ -8,6 +8,4 @@ Maintainer: Murray Jorgensen <majmurr@gmail.com>
 Description: One paragraph description of what the package does as one or more full sentences.
 Encoding: UTF-8
 License: GPL (>= 2)
-Imports: Rcpp (>= 1.0.0)
-LinkingTo: Rcpp
 RoxygenNote: 6.1.1

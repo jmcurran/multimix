@@ -1,3 +1,1 @@
-useDynLib(multimix, .registration=TRUE)
 exportPattern("^[[:alpha:]]+")
-importFrom(Rcpp, evalCpp)
