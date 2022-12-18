@@ -13,6 +13,7 @@ names(cancer.df) = c("Age",
                      "AP",
                      "BM")
 
+
 library(dplyr)
 
 cancer.df = cancer.df |> 
@@ -32,5 +33,8 @@ cancer.df = cancer.df |>
                       `5` = "Old_MC1",
                       `6` = "New_MC1")
                       )
+
+## Sorry Murray, I really hate case in variable names :-)
+names(cancer.df) = tolower(names(cancer.df))
 
 save(cancer.df, file = "data/cancer.df.rda")

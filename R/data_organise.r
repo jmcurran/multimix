@@ -1,7 +1,7 @@
-#' Title
+#' Prepare data for use with multimix
 #'
-#' @param dframe 
-#' @param cdep 
+#' @param dframe a data frame containing the data set you wish to model
+#' @param cdep a list of multivariate normal \textit{cells}
 #' @param lcdep 
 #' @param minpstar Minimum increase in the log-likelihood for the EM Algorithm.
 #' This is used as a stopping criterion. That is, if the increase in the 
