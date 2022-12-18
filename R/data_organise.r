@@ -1,8 +1,10 @@
 #' Prepare data for use with multimix
 #'
-#' @param dframe a data frame containing the data set you wish to model
-#' @param cdep a list of multivariate normal \textit{cells}
-#' @param lcdep 
+#' @param dframe a data frame containing the data set you wish to model.
+#' @param niter the maximum number of steps to that the EM agorithm will run
+#' before terminating.
+#' @param cdep a list of multivariate normal cells.
+#' @param lcdep a list of location cells.
 #' @param minpstar Minimum increase in the log-likelihood for the EM Algorithm.
 #' This is used as a stopping criterion. That is, if the increase in the 
 #' log-likelihood is less than \code{minpstar} then EM Algorithm will terminate.   
@@ -11,12 +13,18 @@
 #' @export
 #'
 #' @examples
-data_organise <- function(dframe, 
+#' data(cancer.df)
+#' mmObj = data_organise(cancer.df)
+data_organise <- function(dframe,
+                          niter  = 1000,
                           cdep = NULL, 
                           lcdep = NULL, 
                           minpstar = 1e-09) {
     discvar <- sapply(dframe, is.factor)  # logical indicator for discrete columns
     #
+    n <- nrow(dframe)
+    v <- ncol(dframe)
+    
     ld <- rep(FALSE, v)
     lc <- rep(FALSE, v)
     for (i in seq_along(lcdep)) {
@@ -88,7 +96,9 @@ data_organise <- function(dframe,
     D <- list(cdep = cdep, clink = clink, cprods = cprods, cvals = cvals, cvals2 = cvals2, dframe = dframe,
         discvar = discvar, dlevs = dlevs, dlink = dlink, dvals = dvals, lc = lc, lcdep = lcdep, lcdisc = lcdisc,
         lclink = lclink, lcprods = lcprods, lcvals = lcvals, lcvals2 = lcvals2, ld = ld, ldlevs = ldlevs, ldlink = ldlink,
-        ldvals = ldvals, ldxc = ldxc, mc = mc, md = md, minpstar = minpstar, n = n, nIt = nIt, oc = oc, olink = olink,
+        ldvals = ldvals, ldxc = ldxc, mc = mc, md = md, minpstar = minpstar, n = n, nIt = niter, oc = oc, olink = olink,
         op = op, ovals = ovals, ovals2 = ovals2)
+    
+    class(D) = "multimixObj"
     return(D)
 }

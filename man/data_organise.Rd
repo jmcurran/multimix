@@ -2,21 +2,34 @@
 % Please edit documentation in R/data_organise.r
 \name{data_organise}
 \alias{data_organise}
-\title{Title}
+\title{Prepare data for use with multimix}
 \usage{
-data_organise(dframe, cdep = NULL, lcdep = NULL, minpstar = 1e-09)
+data_organise(
+  dframe,
+  niter = 1000,
+  cdep = NULL,
+  lcdep = NULL,
+  minpstar = 1e-09
+)
 }
 \arguments{
-\item{dframe}{}
+\item{dframe}{a data frame containing the data set you wish to model.}
 
-\item{cdep}{}
+\item{niter}{the maximum number of steps to that the EM agorithm will run
+before terminating.}
 
-\item{lcdep}{}
+\item{cdep}{a list of multivariate normal cells.}
+
+\item{lcdep}{a list of location cells.}
 
 \item{minpstar}{Minimum increase in the log-likelihood for the EM Algorithm.
 This is used as a stopping criterion. That is, if the increase in the 
 log-likelihood is less than \code{minpstar} then EM Algorithm will terminate.}
 }
 \description{
-Title
+Prepare data for use with multimix
+}
+\examples{
+data(cancer.df)
+mmObj = data_organise(cancer.df)
 }
