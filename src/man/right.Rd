@@ -2,13 +2,20 @@
 % Please edit documentation in R/Functions.r
 \name{right}
 \alias{right}
-\title{Title}
+\title{Map integer index N>0 back to right member of generating pair.}
 \usage{
 right(N)
 }
 \arguments{
-\item{N}{}
+\item{N}{positive integer scalar}
+}
+\value{
+positive integer scalar
 }
 \description{
-Title
+Map integer index N>0 back to right member of generating pair.
+}
+\examples{
+right(131)
+right(57)
 }

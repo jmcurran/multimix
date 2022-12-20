@@ -2,15 +2,23 @@
 % Please edit documentation in R/Functions.r
 \name{pair.index}
 \alias{pair.index}
-\title{Title}
+\title{Maps integer pairs (u,v) with 0<u<v bijectively to positive integers.}
 \usage{
 pair.index(u, v)
 }
 \arguments{
-\item{u}{}
+\item{u}{positive integer scalar}
 
-\item{v}{}
+\item{v}{positive integer scalar}
+}
+\value{
+integer scalar
 }
 \description{
-Title
+Used to reduce array dimensions by replacing
+       A(x,y,z) by A*(x,pair.index(y,z))
+}
+\examples{
+pair.index(11,17)
+pair.index(2,12)
 }

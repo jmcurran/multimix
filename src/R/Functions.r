@@ -18,40 +18,49 @@ count.unique <- function(x){
 }
 
 # Pairing functions for small upper triangle / u < v /
-#' Title
+#' Maps integer pairs (u,v) with 0<u<v bijectively to positive integers.
 #'
-#' @param u 
-#' @param v 
+#' Used to reduce array dimensions by replacing
+#'        A(x,y,z) by A*(x,pair.index(y,z))
 #'
-#' @return
+#' @param u positive integer scalar
+#' @param v positive integer scalar
+#'
+#' @return integer scalar
 #' @export
 #'
 #' @examples
+#' pair.index(11,17)
+#' pair.index(2,12)
 pair.index <- function(u, v) {
     0.5 * v^2 - 1.5 * v + u + 1
 }
 
-#' Title
+#' Map integer index N>0 back to right member of generating pair.
 #'
-#' @param N 
+#' @param N  positive integer scalar
 #'
-#' @return
+#' @return  positive integer scalar
 #' @export
 #'
 #' @examples
+#' right(131)
+#' right(57)
 right <- function(N) {
     floor(1.5 + 0.5 * sqrt(-7 + 8 * N))
 }
 
 
-#' Title
+#' Map integer index N>0 back to left member of generating pair.
 #'
-#' @param N 
+#' @param N  positive integer scalar
 #'
-#' @return
+#' @return  positive integer scalar
 #' @export
 #'
 #' @examples
+#' left(131)
+#' left(57)
 left <- function(N) {
     N - pair.index(1, right(N)) + 1
 }
