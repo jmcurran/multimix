@@ -5,11 +5,9 @@
 #' before terminating.
 #' @param cdep a list of multivariate normal cells.
 #' @param lcdep a list of location cells.
-#' @param minpstar Minimum increase in the log-likelihood for the EM Algorithm.
-#' This is used as a stopping criterion. That is, if the increase in the 
-#' log-likelihood is less than \code{minpstar} then EM Algorithm will terminate.   
+#' @param minpstar Minimum denominator for appliction of Bayes Rule.   
 #'
-#' @return
+#' @return An object of class \code{multimixObj}
 #' @export
 #'
 #' @examples
