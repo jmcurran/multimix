@@ -11,10 +11,10 @@
 #' \item{sbp}{Systolic blood pressure.}
 #' \item{dbp}{Diastolic blood pressure.}
 #' \item{ekg}{Electrocardiogram code.}
-#' \item{hg}{}
-#' \item{sz}{}
-#' \item{sg}{}
-#' \item{ap}{}
+#' \item{hg}{Haemoglobin}
+#' \item{sz}{Tumour size.}
+#' \item{sg}{Tumour index. }
+#' \item{ap}{Acid phosphatase.}
 #' \item{bm}{Bone metastatses}
 #' }
 #'

@@ -22,9 +22,10 @@ before terminating.}
 
 \item{lcdep}{a list of location cells.}
 
-\item{minpstar}{Minimum increase in the log-likelihood for the EM Algorithm.
-This is used as a stopping criterion. That is, if the increase in the 
-log-likelihood is less than \code{minpstar} then EM Algorithm will terminate.}
+\item{minpstar}{Minimum denominator for appliction of Bayes Rule.}
+}
+\value{
+An object of class \code{multimixObj}
 }
 \description{
 Prepare data for use with multimix
