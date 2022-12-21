@@ -37,4 +37,4 @@ cancer.df = cancer.df |>
 ## Sorry Murray, I really hate case in variable names :-)
 names(cancer.df) = tolower(names(cancer.df))
 
-save(cancer.df, file = "data/cancer.df.rda")
+save(cancer.df, file = "src/R/data/cancer.df.rda")

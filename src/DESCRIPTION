@@ -1,8 +1,8 @@
 Package: multimix
 Type: Package
 Title: Fit Mixture Models in R Using the EM Algorithm
-Version: 1.0-1
-Date: 2022-12-20
+Version: 1.0-2
+Date: 2022-12-21
 Authors@R: c(person(given  = "Murray", 
                     family = "Jorgensen", 
                     role = c("aut", "cre"),
