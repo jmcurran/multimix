@@ -1,14 +1,15 @@
 Package: multimix
 Type: Package
 Title: Fit Mixture Models in R Using the EM Algorithm
-Version: 1.0-2
-Date: 2022-12-21
+Version: 1.0-3
+Date: 2022-12-23
 Authors@R: c(person(given  = "Murray", 
                     family = "Jorgensen", 
                     role = c("aut", "cre"),
                     email = "majmurr@gmail.com")
             )
 Description: A package for fitting mixture models using the EM Algorithm.
+Depends: R (>= 4.0.0)
 Encoding: UTF-8
 License: GPL (>= 2)
 RoxygenNote: 7.2.2
