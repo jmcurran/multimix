@@ -1,0 +1,17 @@
+P.to.Z                  Title
+Z.to.P                  Title
+cancer.df               Prostate cancer patient data
+cmc.df                  Contraceptive Method Choice data
+count.unique            Count the number of unique items ion a vector x
+data_organise           Prepare data for use with multimix
+first.Z.to.P            Title
+left                    Map integer index N>0 back to left member of
+                        generating pair.
+make_Z_discrete         Title
+make_Z_fortran          Read Z from Fortran output. Make into R matrix
+make_Z_random           Start from random groups of similar size.
+mmain                   Title
+pair.index              Maps integer pairs (u,v) with 0<u<v bijectively
+                        to positive integers.
+right                   Map integer index N>0 back to right member of
+                        generating pair.

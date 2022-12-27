@@ -17,3 +17,8 @@ Description: A package for fitting mixture models using the EM Algorithm.
 Depends: R (>= 4.0.0)
 Encoding: UTF-8
 License: GPL (>= 2)
+NeedsCompilation: no
+Packaged: 2022-12-27 05:46:30 UTC; jcur002
+Author: Murray Jorgensen [aut],
+  James Curran [cre]
+Maintainer: James Curran <james.m.curran@gmail.com>
