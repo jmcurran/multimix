@@ -11,9 +11,11 @@
 #'   \eqn{P}{P} matrix, and a results matrix, called \code{results}, with
 #'   \eqn{nIter + 2}{nIter + 2} rows and \eqn{qq}{qq} columns.
 #' @export
-#'
+#' @importFrom stats model.matrix runif
 #' @examples
-mmain <- function(D, Z, P, nIter = 100, eps = 1e-9) {
+mmain <- function(D, Z, P, eps = 1e-9){
+    nIter <- D$nIter
+    qq <- ncol(Z)
     results <- matrix(0, nrow = nIter + 2, ncol = qq + 2)
     cyc <- 0
     zll <- P.to.Z(P, D)

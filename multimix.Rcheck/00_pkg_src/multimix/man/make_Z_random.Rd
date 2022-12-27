@@ -4,13 +4,27 @@
 \alias{make_Z_random}
 \title{Start from random groups of similar size.}
 \usage{
-make_Z_random(xq, seed = 310322)
+make_Z_random(n, xq, seed = 310322)
 }
 \arguments{
-\item{xq}{}
+\item{n}{integer - the number of observations.}
 
-\item{seed}{}
+\item{xq}{integer # Number of random "clusters" to be generated.}
+
+\item{seed}{integer # Suggest using date as seed for random numbers.}
+}
+\value{
+a matrix.
 }
 \description{
-Start from random groups of similar size.
+A large number (\eqn{n}{n}) of observations are assigned randomly into
+(\eqn{xq}{xq}) clusters. It is recommended to repeat Multimix runs with a
+number of different seeds to search for a log-likelihood maximum.
+}
+\details{
+Also consider making additional clusters from observations with low
+probabilities of belonging to any cluster in a previous clustering.
+}
+\examples{
+make_Z_random(3,271222)
 }

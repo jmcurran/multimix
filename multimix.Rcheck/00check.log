@@ -35,21 +35,7 @@
 * checking S3 generic/method consistency ... OK
 * checking replacement functions ... OK
 * checking foreign function calls ... OK
-* checking R code for possible problems ... NOTE
-data_organise: no visible global function definition for ‘model.matrix’
-make_Z_discrete: no visible global function definition for
-  ‘model.matrix’
-make_Z_fortran: no visible global function definition for ‘read.table’
-make_Z_random: no visible global function definition for ‘runif’
-make_Z_random: no visible binding for global variable ‘n’
-make_Z_random: no visible global function definition for ‘model.matrix’
-mmain: no visible binding for global variable ‘qq’
-Undefined global functions or variables:
-  model.matrix n qq read.table runif
-Consider adding
-  importFrom("stats", "model.matrix", "runif")
-  importFrom("utils", "read.table")
-to your NAMESPACE file.
+* checking R code for possible problems ... OK
 * checking Rd files ... OK
 * checking Rd metadata ... OK
 * checking Rd line widths ... OK
@@ -62,14 +48,17 @@ Variables with usage in documentation object 'cancer.df' but not in code:
 Variables with usage in documentation object 'cmc.df' but not in code:
   ‘cmc.df’
 
-Codoc mismatches from documentation object 'mmain':
-mmain
-  Code: function(D, Z, P, nIter = 100, eps = 1e-09)
-  Docs: function(D, Z, P)
-  Argument names in code not in docs:
-    nIter eps
+* checking Rd \usage sections ... WARNING
+Undocumented arguments in documentation object 'mmain'
+  ‘D’ ‘Z’ ‘P’
+Documented arguments not in \usage in documentation object 'mmain':
+  ‘nIter’
 
-* checking Rd \usage sections ... OK
+Functions with \usage entries need to have the appropriate \alias
+entries, and all their arguments documented.
+The \usage entries must correspond to syntactically valid R code.
+See chapter ‘Writing R documentation files’ in the ‘Writing R
+Extensions’ manual.
 * checking Rd contents ... WARNING
 Argument items with no description in Rd object 'P.to.Z':
   ‘P’ ‘D’
@@ -80,28 +69,15 @@ Argument items with no description in Rd object 'Z.to.P':
 Argument items with no description in Rd object 'first.Z.to.P':
   ‘D’ ‘Z’
 
-Argument items with no description in Rd object 'make_Z_discrete':
-  ‘d’
-
-Argument items with no description in Rd object 'make_Z_fortran':
-  ‘gr.out’
-
-Argument items with no description in Rd object 'make_Z_random':
-  ‘xq’ ‘seed’
-
 Argument items with no description in Rd object 'mmain':
-  ‘D’ ‘Z’ ‘P’
+  ‘eps’
 
 * checking for unstated dependencies in examples ... OK
 * checking contents of ‘data’ directory ... OK
 * checking data for non-ASCII characters ... OK
 * checking data for ASCII and uncompressed saves ... OK
-* checking files in ‘vignettes’ ... WARNING
-Files in the 'vignettes' directory but no files in 'inst/doc':
-  ‘Multimix_in_R_290119.pdf’
-Package has no Sweave vignette sources and no VignetteBuilder field.
 * checking examples ... OK
 * checking for non-standard things in the check directory ... OK
 * checking for detritus in the temp directory ... OK
 * DONE
-Status: 3 WARNINGs, 1 NOTE
+Status: 3 WARNINGs

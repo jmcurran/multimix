@@ -88,7 +88,8 @@ flush(stderr()); flush(stdout())
 
 base::assign(".ptime", proc.time(), pos = "CheckExEnv")
 ### Name: make_Z_discrete
-### Title: Title
+### Title: Make initial Z matrix from initial assignment of observations to
+###   clusters
 ### Aliases: make_Z_discrete
 
 ### ** Examples
@@ -101,6 +102,45 @@ Z = make_Z_discrete(stage)
 
 base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
 base::cat("make_Z_discrete", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+cleanEx()
+nameEx("make_Z_fortran")
+### * make_Z_fortran
+
+flush(stderr()); flush(stdout())
+
+base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+### Name: make_Z_fortran
+### Title: Read Z from FORTRAN output. Make into R matrix
+### Aliases: make_Z_fortran
+
+### ** Examples
+
+Z <- make_Z_fortran(system.file("extdata", "GROUPS-BP-Multimixf90.OUT", 
+                    package = "multimix"))
+
+
+
+base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+base::cat("make_Z_fortran", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+cleanEx()
+nameEx("make_Z_random")
+### * make_Z_random
+
+flush(stderr()); flush(stdout())
+
+base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+### Name: make_Z_random
+### Title: Start from random groups of similar size.
+### Aliases: make_Z_random
+
+### ** Examples
+
+make_Z_random(3,271222)
+
+
+
+base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+base::cat("make_Z_random", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
 cleanEx()
 nameEx("pair.index")
 ### * pair.index

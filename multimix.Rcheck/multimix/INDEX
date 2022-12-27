@@ -7,8 +7,9 @@ data_organise           Prepare data for use with multimix
 first.Z.to.P            Title
 left                    Map integer index N>0 back to left member of
                         generating pair.
-make_Z_discrete         Title
-make_Z_fortran          Read Z from Fortran output. Make into R matrix
+make_Z_discrete         Make initial Z matrix from initial assignment
+                        of observations to clusters
+make_Z_fortran          Read Z from FORTRAN output. Make into R matrix
 make_Z_random           Start from random groups of similar size.
 mmain                   Title
 pair.index              Maps integer pairs (u,v) with 0<u<v bijectively

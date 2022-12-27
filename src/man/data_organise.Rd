@@ -25,7 +25,42 @@ before terminating.}
 \item{minpstar}{Minimum denominator for appliction of Bayes Rule.}
 }
 \value{
-An object of class \code{multimixObj}
+An object of class \code{multimixSettings} which is a \code{list} 
+with the following elements:
+\itemize{
+   \item{\code{cdep}}{}
+   \item{\code{clink}}{}
+   \item{\code{cprods}}{}
+   \item{\code{cvals}}{}
+   \item{\code{cvals2}}{}
+   \item{\code{dframe}}{}
+   \item{\code{discvar}}{}
+   \item{\code{dlevs}}{}
+   \item{\code{dlink}}{}
+   \item{\code{dvals}}{}
+   \item{\code{lc}}{}
+   \item{\code{lcdep}}{}
+   \item{\code{lcdisc}}{}
+   \item{\code{lclink}}{}
+   \item{\code{lcprods}}{}
+   \item{\code{lcvals}}{}
+   \item{\code{lcvals2}}{}
+   \item{\code{ld}}{}
+   \item{\code{ldlevs}}{}
+   \item{\code{ldlink}}{}
+   \item{\code{ldvals}}{}
+   \item{\code{ldxc}}{}
+   \item{\code{mc}}{}
+   \item{\code{md}}{}
+   \item{\code{minpstar}}{}
+   \item{\code{n}}{}
+   \item{\code{nIt}}{}
+   \item{\code{oc}}{}
+   \item{\code{olink}}{}
+   \item{\code{op}}{}
+   \item{\code{ovals}}{}
+   \item{\code{ovals2}}{}
+}
 }
 \description{
 Prepare data for use with multimix

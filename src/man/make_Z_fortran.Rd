@@ -2,13 +2,25 @@
 % Please edit documentation in R/make_Z_fortran.r
 \name{make_Z_fortran}
 \alias{make_Z_fortran}
-\title{Read Z from Fortran output. Make into R matrix}
+\title{Read Z from FORTRAN output. Make into R matrix}
 \usage{
 make_Z_fortran(gr.out = "groups.out")
 }
 \arguments{
-\item{gr.out}{}
+\item{gr.out}{string containing  a file name.}
+}
+\value{
+a matrix containing a \eqn{Z}{Z} matrix.
 }
 \description{
-Read Z from Fortran output. Make into R matrix
+The FORTRAN version of Multimix produces two output files:
+GENERAL.OUT and GROUPS.OUT. The latter mainly contains the Z matrix.
+}
+\details{
+This function facilitates the obtaining of Multimix R output given
+Multimix FORTRAN output.
+}
+\examples{
+Z <- make_Z_fortran(system.file("extdata", "GROUPS-BP-Multimixf90.OUT", 
+                    package = "multimix"))
 }

@@ -7,7 +7,42 @@
 #' @param lcdep a list of location cells.
 #' @param minpstar Minimum denominator for appliction of Bayes Rule.   
 #'
-#' @return An object of class \code{multimixObj}
+#' @return An object of class \code{multimixSettings} which is a \code{list} 
+#' with the following elements:
+#' \itemize{
+#'    \item{\code{cdep}}{}
+#'    \item{\code{clink}}{}
+#'    \item{\code{cprods}}{}
+#'    \item{\code{cvals}}{}
+#'    \item{\code{cvals2}}{}
+#'    \item{\code{dframe}}{}
+#'    \item{\code{discvar}}{}
+#'    \item{\code{dlevs}}{}
+#'    \item{\code{dlink}}{}
+#'    \item{\code{dvals}}{}
+#'    \item{\code{lc}}{}
+#'    \item{\code{lcdep}}{}
+#'    \item{\code{lcdisc}}{}
+#'    \item{\code{lclink}}{}
+#'    \item{\code{lcprods}}{}
+#'    \item{\code{lcvals}}{}
+#'    \item{\code{lcvals2}}{}
+#'    \item{\code{ld}}{}
+#'    \item{\code{ldlevs}}{}
+#'    \item{\code{ldlink}}{}
+#'    \item{\code{ldvals}}{}
+#'    \item{\code{ldxc}}{}
+#'    \item{\code{mc}}{}
+#'    \item{\code{md}}{}
+#'    \item{\code{minpstar}}{}
+#'    \item{\code{n}}{}
+#'    \item{\code{nIt}}{}
+#'    \item{\code{oc}}{}
+#'    \item{\code{olink}}{}
+#'    \item{\code{op}}{}
+#'    \item{\code{ovals}}{}
+#'    \item{\code{ovals2}}{}
+#' }
 #' @export
 #'
 #' @examples
@@ -97,6 +132,6 @@ data_organise <- function(dframe,
         ldvals = ldvals, ldxc = ldxc, mc = mc, md = md, minpstar = minpstar, n = n, nIt = niter, oc = oc, olink = olink,
         op = op, ovals = ovals, ovals2 = ovals2)
     
-    class(D) = "multimixObj"
+    class(D) = "multimixSettings"
     return(D)
 }

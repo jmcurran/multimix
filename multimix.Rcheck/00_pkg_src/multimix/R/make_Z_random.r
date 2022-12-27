@@ -7,6 +7,7 @@
 #' Also consider making additional clusters from observations with low
 #' probabilities of belonging to any cluster in a previous clustering.
 #'
+#' @param n integer - the number of observations.
 #' @param xq   integer # Number of random "clusters" to be generated.
 #' @param seed integer # Suggest using date as seed for random numbers.
 #'
@@ -16,7 +17,7 @@
 #'
 #' @examples
 #' make_Z_random(3,271222)
-make_Z_random <- function(xq, seed = 310322) {
+make_Z_random <- function(n, xq, seed = 310322) {
     set.seed(seed)
     x <- runif(n, 0, xq)
     x <- (n * x + 0.1)/(n + 0.2)

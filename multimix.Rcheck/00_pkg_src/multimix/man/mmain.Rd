@@ -4,14 +4,18 @@
 \alias{mmain}
 \title{Title}
 \usage{
-mmain(D, Z, P)
+mmain(D, Z, P, eps = 1e-09)
 }
 \arguments{
-\item{D}{}
+\item{eps}{}
 
-\item{Z}{}
-
-\item{P}{}
+\item{nIter}{the maximum number of iteratins that multimix is allowed to run
+before it terminates}
+}
+\value{
+a list containing three elements: the \eqn{Z}{Z} matrix, the
+  \eqn{P}{P} matrix, and a results matrix, called \code{results}, with
+  \eqn{nIter + 2}{nIter + 2} rows and \eqn{qq}{qq} columns.
 }
 \description{
 Title
