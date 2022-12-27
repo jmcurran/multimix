@@ -1,12 +1,20 @@
 #' Start from random groups of similar size.
 #'
-#' @param xq 
-#' @param seed 
+#' A large number (n) of observations are assigned randomly into (xq) clusters.
+#' It is recommended to repeat Multimix runs with a number of different seeds
+#' to search for a log-likelihood maximum.
+#'
+#' Also consider making additional clusters from observations with low
+#' probabilities of belonging to any cluster in a previous clustering.
+#'
+#' @param xq   integer # Number of random "clusters" to be generated
+#' @param seed integer # Suggest using date as seed for random numbers 
 #'
 #' @return
 #' @export
 #'
 #' @examples
+#' make_Z_random(3,271222)
 make_Z_random <- function(xq, seed = 310322) {
     set.seed(seed)
     x <- runif(n, 0, xq)
@@ -17,5 +25,6 @@ make_Z_random <- function(xq, seed = 310322) {
     attr(Z, "assign") <- NULL
     attr(Z, "contrasts") <- NULL
     colnames(Z) <- NULL
-    Z
+	
+    return(Z)
 }
