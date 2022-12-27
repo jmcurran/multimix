@@ -4,8 +4,6 @@
 #'   \code{\link{data_organise}} for full description.
 #' @param Z a matrix
 #' @param P a matrix
-#' @param nIter the maximum number of iteratins that multimix is allowed to run
-#'   before it terminates.
 #' @param eps
 #'
 #' @return an object of class \code{multimix results} which is a a list
