@@ -20,8 +20,8 @@ exceeded the the algorithm will terminate.}
 \value{
 an object of class \code{multimix results} which is a a list
   containing three elements: the \eqn{Z}{Z} matrix, the \eqn{P}{P} matrix,
-  and a results matrix, called \code{results}, with \eqn{nIter + 2}{nIter +
-  2} rows and \eqn{qq}{qq} columns.
+  and a results matrix, called \code{results}, with \eqn{n}{n} rows and
+  \eqn{qq}{qq} columns.
 }
 \description{
 Title
