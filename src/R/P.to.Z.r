@@ -10,6 +10,7 @@
 #' @examples
 P.to.Z <- function(P, D) {
     with(c(P, D), {
+      #browser()
         ollq <- matrix(0, nrow = n, ncol = qq)
         for (j in 1:qq) {
             ldens <- dnorm(as.vector(ovals), rep(ostat[j, ], rep(n, op)), rep(sqrt(ovar)[j, ], rep(n, op)),

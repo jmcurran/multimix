@@ -32,9 +32,12 @@ cancer.df = cancer.df |>
                       `4` = "H_strain",
                       `5` = "Old_MC1",
                       `6` = "New_MC1")
-                      )
+                      ) |> 
+  mutate(BM = recode(as.factor(BM),
+                     `0` = "No_BM",
+                     `1` = "BM"))
 
 ## Sorry Murray, I really hate case in variable names :-)
 names(cancer.df) = tolower(names(cancer.df))
 
-save(cancer.df, file = "src/R/data/cancer.df.rda")
+save(cancer.df, file = "cancer.df.rda")
