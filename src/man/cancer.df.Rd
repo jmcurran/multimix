@@ -30,7 +30,7 @@ D.P. Byar and S.B. Green "The choice of treatment for cancer patients
   New York.
 }
 \usage{
-cancer.df
+data(cancer.df)
 }
 \description{
 Data on 475 prostate cancer patients

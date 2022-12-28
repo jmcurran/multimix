@@ -6,6 +6,7 @@
 \usage{
 data_organise(
   dframe,
+  numClusters,
   niter = 1000,
   cdep = NULL,
   lcdep = NULL,
@@ -14,6 +15,8 @@ data_organise(
 }
 \arguments{
 \item{dframe}{a data frame containing the data set you wish to model.}
+
+\item{numClusters}{the clusters you wish to fit.}
 
 \item{niter}{the maximum number of steps to that the EM agorithm will run
 before terminating.}
@@ -60,6 +63,7 @@ with the following elements:
    \item{\code{op}}{}
    \item{\code{ovals}}{}
    \item{\code{ovals2}}{}
+   \item{\code{qq}}{the number of clusters in the model.}
 }
 }
 \description{

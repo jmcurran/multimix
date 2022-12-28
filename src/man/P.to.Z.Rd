@@ -2,15 +2,14 @@
 % Please edit documentation in R/P.to.Z.r
 \name{P.to.Z}
 \alias{P.to.Z}
-\title{Title}
+\title{Maximisation step}
 \usage{
 P.to.Z(P, D)
 }
 \arguments{
-\item{P}{}
-
-\item{D}{}
+\item{D}{an object of class \code{multimixSettings}---see
+\code{\link{data_organise}} for more information.}
 }
 \description{
-Title
+Maximisation step
 }

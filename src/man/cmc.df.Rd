@@ -26,7 +26,7 @@ Tjen-Sien Lim "Contraceptive Method Choice" 1997,
   Science.
 }
 \usage{
-cmc.df
+data(cmc.df)
 }
 \description{
 This dataset is a subset of the 1987 National Indonesia Contraceptive

@@ -42,6 +42,9 @@
 #' \item{ap}{Serum prostatic acid phosphatase}
 #' \item{bm}{Bone metastatses}
 #' }
+#' 
+#' @usage 
+#' data(cancer.df)
 #'
 #' @source D.P. Byar and S.B. Green "The choice of treatment for cancer patients
 #'   based on covariate information - application to prostate cancer", Bulletin
@@ -84,6 +87,10 @@
 #' \item{medex}{Media exposure}
 #' \item{method}{Contraceptive method used}
 #' }
+#' 
+#' @usage 
+#' data(cmc.df)
+#'   
 #' @source Tjen-Sien Lim "Contraceptive Method Choice" 1997,
 #'    UCI Machine Learning Repository [http://archive.ics.uci.edu/ml]. 
 #'   Irvine, CA: University of California, School of Information and Computer 

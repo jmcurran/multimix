@@ -1,7 +1,8 @@
-#' Title
+#' Maximisation step
 #'
-#' @param P 
-#' @param D 
+#' @param P
+#' @param D an object of class \code{multimixSettings}---see
+#'   \code{\link{data_organise}} for more information.
 #'
 #' @return
 #' @export

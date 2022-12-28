@@ -1,6 +1,7 @@
 #' Prepare data for use with multimix
 #'
 #' @param dframe a data frame containing the data set you wish to model.
+#' @param numClusters the clusters you wish to fit.
 #' @param niter the maximum number of steps to that the EM agorithm will run
 #' before terminating.
 #' @param cdep a list of multivariate normal cells.
@@ -42,6 +43,7 @@
 #'    \item{\code{op}}{}
 #'    \item{\code{ovals}}{}
 #'    \item{\code{ovals2}}{}
+#'    \item{\code{qq}}{the number of clusters in the model.}
 #' }
 #' @export
 #'
@@ -49,6 +51,7 @@
 #' data(cancer.df)
 #' mmObj = data_organise(cancer.df)
 data_organise <- function(dframe,
+                          numClusters,
                           niter  = 1000,
                           cdep = NULL, 
                           lcdep = NULL, 
@@ -130,7 +133,7 @@ data_organise <- function(dframe,
         discvar = discvar, dlevs = dlevs, dlink = dlink, dvals = dvals, lc = lc, lcdep = lcdep, lcdisc = lcdisc,
         lclink = lclink, lcprods = lcprods, lcvals = lcvals, lcvals2 = lcvals2, ld = ld, ldlevs = ldlevs, ldlink = ldlink,
         ldvals = ldvals, ldxc = ldxc, mc = mc, md = md, minpstar = minpstar, n = n, nIt = niter, oc = oc, olink = olink,
-        op = op, ovals = ovals, ovals2 = ovals2)
+        op = op, ovals = ovals, ovals2 = ovals2, qq = numClusters)
     
     class(D) = "multimixSettings"
     return(D)
