@@ -25,44 +25,46 @@ before terminating.}
 
 \item{lcdep}{a list of location cells.}
 
-\item{minpstar}{Minimum denominator for appliction of Bayes Rule.}
+\item{minpstar}{Minimum denominator for application of Bayes Rule.}
 }
 \value{
 An object of class \code{multimixSettings} which is a \code{list} 
 with the following elements:
 \itemize{
-   \item{\code{cdep}}{}
-   \item{\code{clink}}{}
-   \item{\code{cprods}}{}
-   \item{\code{cvals}}{}
-   \item{\code{cvals2}}{}
-   \item{\code{dframe}}{}
-   \item{\code{discvar}}{}
-   \item{\code{dlevs}}{}
-   \item{\code{dlink}}{}
-   \item{\code{dvals}}{}
-   \item{\code{lc}}{}
-   \item{\code{lcdep}}{}
-   \item{\code{lcdisc}}{}
-   \item{\code{lclink}}{}
-   \item{\code{lcprods}}{}
-   \item{\code{lcvals}}{}
-   \item{\code{lcvals2}}{}
-   \item{\code{ld}}{}
-   \item{\code{ldlevs}}{}
-   \item{\code{ldlink}}{}
-   \item{\code{ldvals}}{}
-   \item{\code{ldxc}}{}
-   \item{\code{mc}}{}
-   \item{\code{md}}{}
-   \item{\code{minpstar}}{}
-   \item{\code{n}}{}
-   \item{\code{nIt}}{}
-   \item{\code{oc}}{}
-   \item{\code{olink}}{}
-   \item{\code{op}}{}
-   \item{\code{ovals}}{}
-   \item{\code{ovals2}}{}
+   \item{\code{cdep}}{a list of multivariate normal cells.}
+   \item{\code{clink}}{column numbers of univariate normal variables.}
+   \item{\code{cprods}}{a list over MVN cells containing a matrix of 
+                        pair-wise products of columns in the cell, columns 
+                        ordered by \code{\link{pair.index}}.}
+   \item{\code{cvals}}{a list over MVN cells containing a matrix of columns of variables in the cell}
+   \item{\code{cvals2}}{a list over MVN cells containing a matrix of squared columns of variables in the cell}
+   \item{\code{dframe}}{the \code{data.frame} of variables}
+   \item{\code{discvar}}{logical: the variable is takes values of either \code{TRUE} or \code{FALSE}}
+   \item{\code{dlevs}}{for discrete cells: number of levels}
+   \item{\code{dlink}}{column numbers of univariate discrete variables}
+   \item{\code{dvals}}{a list over discrete cells of level indicator matrices}
+   \item{\code{lc}}{logical: is continuous variable belonging to OT cell \code{TRUE}/\code{FALSE}}
+   \item{\code{lcdep}}{a list of OT cells}
+   \item{\code{lcdisc}}{column numbers of discrete variables in OT cells}
+   \item{\code{lclink}}{column numbers of continuous variables in OT cells}
+   \item{\code{lcprods}}{a list over OT cells containing a matrix of pair-wise products of continuous columns in the cell, columns ordered by \code{pair.index}}
+   \item{\code{lcvals}}{a list over OT cells containing a matrix of continuous columns of variables in the cell}
+   \item{\code{lcvals2}}{a list over OT cells containing a matrix of squared continuous columns of variables in the cell}
+   \item{\code{ld}}{logical: is discrete variable belonging to OT cell \code{TRUE}/\code{FALSE}}
+   \item{\code{ldlevs}}{for discrete variables in OT cells: number of levels}
+   \item{\code{ldlink}}{column numbers of OT discrete variables}
+   \item{\code{ldvals}}{a list over OT cells of level indicator matrices}
+   \item{\code{ldxc}}{a list over OT cells whose members are lists over levels of matrices of the cell continuous variables whose columns are multiplied by the level indicator column}
+   \item{\code{mc}}{logical: is continuous variable not in OT cell \code{TRUE}/\code{FALSE}}
+   \item{\code{md}}{logical: is discrete variable not in OT cell \code{TRUE}/\code{FALSE}}
+   \item{\code{minpstar}}{minimum denominator for appliction of Bayes' Rule}
+   \item{\code{n}}{number of observations}
+   \item{\code{niter}}{the maximum number of steps to that the EM agorithm will run before terminating}
+   \item{\code{oc}}{logical: is continuous variable in univariate cell \code{TRUE}/\code{FALSE}}
+   \item{\code{olink}}{column numbers of continuous univariate cells}
+   \item{\code{op}}{\code{length(olink)}}
+   \item{\code{ovals}}{\code{n} by \code{op} matrix of continuous univariate variables}
+   \item{\code{ovals2}}{\code{n} by \code{op} matrix of squared continuous univariate variables}
    \item{\code{qq}}{the number of clusters in the model.}
 }
 }

@@ -4,13 +4,13 @@
 \alias{print.multimixResults}
 \title{S3 method for the printing of multimix results}
 \usage{
-\method{print}{multimixResults}(x, dispLL = FALSE, ...)
+\method{print}{multimixResults}(x, n = FALSE, ...)
 }
 \arguments{
 \item{x}{an object of class \code{multimixResults}---see \code{\link{mmain}}
 for a description.}
 
-\item{dispLL}{display the last few iterations of the log-likelihood. If 
+\item{n}{display the last few iterations of the group probabilities. If 
 \code{TRUE} then the last 5 iterations will be displayed by default.
 Alternatively, a positive integer can be supplied. If this exceeds the 
 number of actual iterations, the output will be truncated.}
