@@ -1,13 +1,94 @@
-#' Title
+#' The E(xpectation) step
 #'
-#' @param Z 
-#' @param D 
-#' @param P 
+#' Uses the current group membership to estimate the probabilities.
 #'
-#' @return
+#' @param Z an \eqn{n \times q}{n by q} matrix, where \eqn{n}{n} is the number
+#'   of rows of \code{dframe} and \eqn{q}{q} is the number of components in the
+#'   mixture. During the fitting \eqn{Z_{ij}}{Zij} holds the currently estimated
+#'   probability that observation \eqn{i}{i} belongs to component \eqn{j}{j}.
+#'   Commonly \code{Z} is initialized to a matrix of indicator columns for a
+#'   partition of the data.
+#' @param D an object of class \code{multimixSettings}---see
+#'   \code{\link{data_organise}} for details.
+#' @param P an object of class \code{Pinfo} which is a \code{list} with the following elements:
+#' \itemize{
+#'    \item{\code{dstat}}{ -- \code{list} of matrices for each discrete variable
+#'     not included in a location model. The matrix for each discrete variable 
+#'     is made up of a column of length\eqn{q}{q} for each level (value) of the 
+#'     variable giving the expected proportion of each level (column) for each 
+#'     mixture component (row). Rows sum to 1.}
+#'    \item{\code{ldstat}}{ -- \code{list} of matrices for each discrete 
+#'    variable within a location model. The matrix for each discrete variable is
+#'     made up of a column of length\eqn{q}{q} for each level (value) of the 
+#'     variable giving the expected proportion of each level (column) for each 
+#'     mixture component (row). Rows sum to 1. }
+#'    \item{\code{ostat}}{ -- \code{matrix}  with a column for each continuous 
+#'    variable outside any location mode whose\eqn{q}{q} rows give the current 
+#'    estimated mean for each mixture component. }
+#'    \item{\code{ostat2}}{ -- \code{matrix} with a column for each continuous 
+#'    variable outside any location mode whose\eqn{q}{q}rows give the current 
+#'    estimated mean square for each mixture component. }
+#'    \item{\code{osvar}}{ -- \code{matrix} with a column for each continuous
+#'     variable outside any location mode whose\eqn{q}{q} rows give the current
+#'      estimated variance for each mixture component. }
+#'    \item{\code{cstat}}{ -- \code{list} with a member for each nontrivial, 
+#'    fully continuous, partition cell, that is not including discrete cells or 
+#'    cells listed in lcdep, each member being a \code{matrix} with a column for each 
+#'    continuous variable in that cell, whose\eqn{q}{q} rows give the current 
+#'    estimated mean for each mixture component. }
+#'    \item{\code{cstat2}}{ -- \code{list} with a member for each nontrivial, 
+#'    fully continuous, partition cell, each member being a \code{matrix} with a column
+#'     for each continuous variable in that cell, whose\eqn{q}{q} rows give the 
+#'     current estimated mean square for each mixture component. }
+#'    \item{\code{cvar}}{ -- \code{list} with a member for each nontrivial, 
+#'    fully continuous, partition cell, each member being av\code{matrix} with a column
+#'     for each continuous variable in that cell, whose\eqn{q}{q} rows give the 
+#'     current estimated variance for each mixture component. }
+#'    \item{\code{cpstat}}{ -- \code{list} with a member for each nontrivial, 
+#'    fully continuous, partition cell, each member being the \code{matrix} with rows 
+#'    for each of the\eqn{q}{q} mixture components and columns for each pair of 
+#'    continuous variables in that cell, as ordered by \code{\link{pair.index}}. 
+#'    The matrix 
+#'    elements are the currently expected products of the variable pairs 
+#'    arranged by component and pair. }
+#'    \item{\code{ccov}}{ -- \code{list} with a member for each nontrivial, 
+#'    fully continuous, partition cell, each member being the \code{matrix} with rows 
+#'    for each of the \eqn{q}{q} mixture components and columns for each pair of 
+#'    continuous variables in that cell, as ordered by pair.index. The matrix 
+#'    elements are the currently expected covariances of the variable pairs 
+#'    arranged by component and pair.}
+#'    \item{\code{MVMV}}{ -- \code{list} with a member for each nontrivial, 
+#'    fully continuous, partition cell, each member being a list with members 
+#'    for each of the \eqn{q}{q} mixture components whose values are the 
+#'    covariance matrix estimates for that cell and component. }
+#'    \item{\code{lcstat}}{ -- \code{list} with a member for location partition 
+#'    cell, each member being a \code{matrix} with a column for each continuous 
+#'    variable in that cell, whose\eqn{q}{q} rows give the current estimated
+#'     mean for each mixture component. }
+#'    \item{\code{lcstat2}}{ -- \code{list} with a member for location partition
+#'     cell, each member being a \code{matrix} with a column for each continuous 
+#'     variable in that cell, whose \eqn{q}{q} rows give the current estimated 
+#'     mean square for each mixture component. }
+#'    \item{\code{lcpstat}}{ -- \code{list} with a member for each location 
+#'    cell, each member being thev\code{matrix} with rows for each of the 
+#'    \eqn{q}{q} mixture components and columns for each pair of continuous 
+#'    variables in that cell, as ordered by \code{\link{pair.index}}. The matrix 
+#'    elements are the currently expected products of the variable pairs 
+#'    arranged by component and pair. }
+#'    \item{\code{lccov}}{ -- \code{list} with a member for each location cell, 
+#'    each member being the matrix with rows for each of the \eqn{q}{q} mixture 
+#'    components and columns for each pair of continuous variables in that cell,
+#'     as ordered by \code{\link{pair.index}}. The matrix elements are the 
+#'     currently estimated covariances of the variable pairs arranged by 
+#'     component and pair. }
+#'    \item{\code{ldxcstat}}{ -- \code{list} with a member for each location 
+#'    partition cell, each member being a list with a member for each level of 
+#'    the cell's discrete variable that member being a matrix of mean values of 
+#'    the continuous variables for each level-class combination. }
+#' }
+#'
+#' @return an object of class \code{Pinfo}---see above.
 #' @export
-#'
-#' @examples
 Z.to.P <- function(Z, D, P) {
     with(c(D, P), {
         ppi <- colSums(Z)/n
@@ -55,8 +136,7 @@ Z.to.P <- function(Z, D, P) {
             }
             for (j in 1:qq) {
                 for (ii in seq_len(nxp)) {
-                  MVMV[[i]][[j]][left(ii), right(ii)] <- MVMV[[i]][[j]][right(ii), left(ii)] <- ccov[[i]][j,
-                    ii]
+                  MVMV[[i]][[j]][left(ii), right(ii)] <- MVMV[[i]][[j]][right(ii), left(ii)] <- ccov[[i]][j, ii]
                 }
             }
         }
@@ -91,8 +171,9 @@ Z.to.P <- function(Z, D, P) {
             }  #j 
         }  #i
         P <- list(dstat = dstat, ldstat = ldstat, ostat = ostat, ostat2 = ostat2, ovar = ovar, pistat = pistat,
-            cstat = cstat, cstat2 = cstat2, cvar = cvar, cpstat = cpstat, lcstat = lcstat, lcstat2 = lcstat2,
-            lcpstat = lcpstat, MVMV = MVMV, LMV = LMV, W = W)
+            cstat = cstat, cstat2 = cstat2, cvar = cvar, cpstat = cpstat, lcstat = lcstat, lcstat2 = lcstat2, lcpstat = lcpstat,
+            MVMV = MVMV, LMV = LMV, W = W)
+        class(P) <- "Pinfo"
         return(P)
     })
 }

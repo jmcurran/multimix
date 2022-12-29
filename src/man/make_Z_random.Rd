@@ -26,5 +26,5 @@ Also consider making additional clusters from observations with low
 probabilities of belonging to any cluster in a previous clustering.
 }
 \examples{
-make_Z_random(3,271222)
+make_Z_random(3, 271222)
 }

@@ -12,11 +12,11 @@
 #' @param seed integer # Suggest using date as seed for random numbers.
 #'
 #' @return a matrix.
-#' @importFrom runif
+#' @importFrom stats runif
 #' @export
 #'
 #' @examples
-#' make_Z_random(3,271222)
+#' make_Z_random(3, 271222)
 make_Z_random <- function(n, xq, seed = 310322) {
     set.seed(seed)
     x <- runif(n, 0, xq)

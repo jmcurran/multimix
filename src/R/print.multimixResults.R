@@ -8,10 +8,9 @@
 #'   number of actual iterations, the output will be truncated.
 #' @param ... other parameters passed to \code{print}. Not currently used.
 #'
-#' @return 
+#' @importFrom methods is
+#' @importFrom utils tail
 #' @export
-#'
-#' @examples
 print.multimixResults = function(x, n = FALSE, ...){
   if(!is(x, "multimixResults")){
     stop("x must be of class multimixResults")

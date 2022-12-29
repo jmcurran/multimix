@@ -2,14 +2,22 @@
 % Please edit documentation in R/P.to.Z.r
 \name{P.to.Z}
 \alias{P.to.Z}
-\title{Maximisation step}
+\title{The M(aximisation) step}
 \usage{
 P.to.Z(P, D)
 }
 \arguments{
+\item{P}{an object of class \code{Pinfo}--see \code{\link{Z.to.P}} for more
+information.}
+
 \item{D}{an object of class \code{multimixSettings}---see
 \code{\link{data_organise}} for more information.}
 }
+\value{
+a \code{list} containing two elements: a \code{matrix} named 
+\code{Z}---see \code{\link{Z.to.P}} for more information, and a scalar
+\code{llik} containing the current value of the log-likelihood.
+}
 \description{
-Maximisation step
+The M(aximisation) step
 }

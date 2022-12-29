@@ -2,15 +2,25 @@
 % Please edit documentation in R/first.Z.to.P.r
 \name{first.Z.to.P}
 \alias{first.Z.to.P}
-\title{Title}
+\title{First expectation step.}
 \usage{
 first.Z.to.P(D, Z)
 }
 \arguments{
-\item{D}{}
+\item{D}{an object of class \code{multimixSettings}---see
+\code{\link{data_organise}} for details.}
 
-\item{Z}{}
+\item{Z}{an \eqn{n \times q}{n by q} matrix, where \eqn{n}{n} is the number
+of rows of \code{dframe} and \eqn{q}{q} is the number of components in the
+mixture. During the fitting \eqn{Z_{ij}}{Zij} holds the currently estimated
+probability that observation \eqn{i}{i} belongs to component \eqn{j}{j}.
+Commonly \code{Z} is initialized to a matrix of indicator columns for a
+partition of the data.}
+}
+\value{
+an object of class \code{Pinfo}---see \code{\link{Z.to.P}} for more
+information.
 }
 \description{
-Title
+First expectation step.
 }

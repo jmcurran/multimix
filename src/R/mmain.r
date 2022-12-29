@@ -13,7 +13,6 @@
 #'   \eqn{qq}{qq} columns.
 #' @export
 #' @importFrom stats model.matrix runif
-#' @examples
 mmain <- function(D, Z, P, eps = 1e-9){
     nIter <- D$nIt
     qq <- ncol(Z)

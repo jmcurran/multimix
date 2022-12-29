@@ -1,13 +1,14 @@
-#' Maximisation step
+#' The M(aximisation) step
 #'
-#' @param P
+#' @param P an object of class \code{Pinfo}--see \code{\link{Z.to.P}} for more
+#' information.
 #' @param D an object of class \code{multimixSettings}---see
 #'   \code{\link{data_organise}} for more information.
 #'
-#' @return
+#' @return a \code{list} containing two elements: a \code{matrix} named 
+#' \code{Z}---see \code{\link{Z.to.P}} for more information, and a scalar
+#' \code{llik} containing the current value of the log-likelihood.
 #' @export
-#'
-#' @examples
 P.to.Z <- function(P, D) {
     with(c(P, D), {
       #browser()

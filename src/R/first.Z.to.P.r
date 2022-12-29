@@ -1,12 +1,17 @@
-#' Title
+#' First expectation step.
 #'
-#' @param D 
-#' @param Z 
+#' @param D an object of class \code{multimixSettings}---see
+#'   \code{\link{data_organise}} for details.
+#' @param Z an \eqn{n \times q}{n by q} matrix, where \eqn{n}{n} is the number
+#'   of rows of \code{dframe} and \eqn{q}{q} is the number of components in the
+#'   mixture. During the fitting \eqn{Z_{ij}}{Zij} holds the currently estimated
+#'   probability that observation \eqn{i}{i} belongs to component \eqn{j}{j}.
+#'   Commonly \code{Z} is initialized to a matrix of indicator columns for a
+#'   partition of the data.
 #'
-#' @return
+#' @return an object of class \code{Pinfo}---see \code{\link{Z.to.P}} for more
+#' information.
 #' @export
-#'
-#' @examples
 first.Z.to.P <- function(D, Z) {
     with(D, {
         ## Z <- make_Z_random(qq) attr(Z,'assign') <- NULL attr(Z,'contrasts') <- NULL colnames(Z) <-
@@ -120,6 +125,7 @@ first.Z.to.P <- function(D, Z) {
         P <- list(dstat = dstat, ldstat = ldstat, ostat = ostat, ostat2 = ostat2, ovar = ovar, pistat = pistat,
             cstat = cstat, cstat2 = cstat2, cvar = cvar, cpstat = cpstat, lcstat = lcstat, lcstat2 = lcstat2,
             lcpstat = lcpstat, MVMV = MVMV, LMV = LMV, W = W)
+        class(P) = "Pinfo"
         return(P)
     })
 }
