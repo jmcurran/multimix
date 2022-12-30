@@ -2,7 +2,7 @@
 #'
 #' @param dframe a data frame containing the data set you wish to model.
 #' @param numClusters the clusters you wish to fit.
-#' @param niter the maximum number of steps to that the EM agorithm will run
+#' @param numIter the maximum number of steps to that the EM agorithm will run
 #' before terminating.
 #' @param cdep a list of multivariate normal cells.
 #' @param lcdep a list of location cells.
@@ -39,7 +39,7 @@
 #'    \item{\code{md}}{logical: is discrete variable not in OT cell \code{TRUE}/\code{FALSE}}
 #'    \item{\code{minpstar}}{minimum denominator for appliction of Bayes' Rule}
 #'    \item{\code{n}}{number of observations}
-#'    \item{\code{niter}}{the maximum number of steps to that the EM agorithm will run before terminating}
+#'    \item{\code{numIter}}{the maximum number of steps to that the EM agorithm will run before terminating}
 #'    \item{\code{oc}}{logical: is continuous variable in univariate cell \code{TRUE}/\code{FALSE}}
 #'    \item{\code{olink}}{column numbers of continuous univariate cells}
 #'    \item{\code{op}}{\code{length(olink)}}
@@ -54,7 +54,7 @@
 #' mmObj = data_organise(cancer.df, numClusters = 2)
 data_organise <- function(dframe,
                           numClusters,
-                          niter  = 1000,
+                          numIter  = 1000,
                           cdep = NULL, 
                           lcdep = NULL, 
                           minpstar = 1e-09) {
@@ -134,7 +134,7 @@ data_organise <- function(dframe,
     D <- list(cdep = cdep, clink = clink, cprods = cprods, cvals = cvals, cvals2 = cvals2, dframe = dframe,
         discvar = discvar, dlevs = dlevs, dlink = dlink, dvals = dvals, lc = lc, lcdep = lcdep, lcdisc = lcdisc,
         lclink = lclink, lcprods = lcprods, lcvals = lcvals, lcvals2 = lcvals2, ld = ld, ldlevs = ldlevs, ldlink = ldlink,
-        ldvals = ldvals, ldxc = ldxc, mc = mc, md = md, minpstar = minpstar, n = n, nIt = niter, oc = oc, olink = olink,
+        ldvals = ldvals, ldxc = ldxc, mc = mc, md = md, minpstar = minpstar, n = n, numIter = numIter, oc = oc, olink = olink,
         op = op, ovals = ovals, ovals2 = ovals2, numClusters = numClusters)
     
     class(D) = "multimixSettings"

@@ -7,7 +7,7 @@
 data_organise(
   dframe,
   numClusters,
-  niter = 1000,
+  numIter = 1000,
   cdep = NULL,
   lcdep = NULL,
   minpstar = 1e-09
@@ -18,7 +18,7 @@ data_organise(
 
 \item{numClusters}{the clusters you wish to fit.}
 
-\item{niter}{the maximum number of steps to that the EM agorithm will run
+\item{numIter}{the maximum number of steps to that the EM agorithm will run
 before terminating.}
 
 \item{cdep}{a list of multivariate normal cells.}
@@ -59,7 +59,7 @@ with the following elements:
    \item{\code{md}}{logical: is discrete variable not in OT cell \code{TRUE}/\code{FALSE}}
    \item{\code{minpstar}}{minimum denominator for appliction of Bayes' Rule}
    \item{\code{n}}{number of observations}
-   \item{\code{niter}}{the maximum number of steps to that the EM agorithm will run before terminating}
+   \item{\code{numIter}}{the maximum number of steps to that the EM agorithm will run before terminating}
    \item{\code{oc}}{logical: is continuous variable in univariate cell \code{TRUE}/\code{FALSE}}
    \item{\code{olink}}{column numbers of continuous univariate cells}
    \item{\code{op}}{\code{length(olink)}}

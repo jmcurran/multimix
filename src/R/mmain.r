@@ -14,9 +14,9 @@
 #' @export
 #' @importFrom stats model.matrix runif
 mmain <- function(D, Z, P, eps = 1e-9){
-    nIter <- D$nIt
+    numIter <- D$numIter
     numClusters <- ncol(Z)
-    results <- matrix(0, nrow = nIter + 2, ncol = numClusters + 2)
+    results <- matrix(0, nrow = numIter + 2, ncol = numClusters + 2)
     colnames(results)[c(1, numClusters + 2)] = c("Log-likelihood", "Iteration")
     colnames(results)[2:(numClusters + 1)] = paste0("Pr(G", 1:numClusters, ")")
     cyc <- 0
@@ -32,7 +32,7 @@ mmain <- function(D, Z, P, eps = 1e-9){
         if (deltall <= eps)
             break  # Explore choosing various epsilons, even 0.
         llik <- llik + deltall
-        if (cyc >= nIter)
+        if (cyc >= numIter)
             break
         results[cyc + 1, ] <- c(llik, P$pistat, cyc)
     }  #cyc

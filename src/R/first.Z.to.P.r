@@ -40,7 +40,7 @@ first.Z.to.P <- function(D, Z) {
                 LMV[[i]][[j]] <- diag(length(lcdep[[i]]) - 1)
             }
         }
-        results <- matrix(0, nrow = nIt + 1, ncol = numClusters + 2)
+        results <- matrix(0, nrow = numIter + 1, ncol = numClusters + 2)
         ppi <- colSums(Z)/n
         W <- Z %*% diag(1/{
             n * ppi
