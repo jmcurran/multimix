@@ -18,7 +18,7 @@ Commonly \code{Z} is initialized to a matrix of indicator columns for a
 partition of the data.}
 }
 \value{
-an object of class \code{Pinfo}---see \code{\link{Z.to.P}} for more
+an object of class \code{multimixParamList}---see \code{\link{Z.to.P}} for more
 information.
 }
 \description{

@@ -17,7 +17,7 @@ partition of the data.}
 \item{D}{an object of class \code{multimixSettings}---see
 \code{\link{data_organise}} for details.}
 
-\item{P}{an object of class \code{Pinfo} which is a \code{list} with the following elements:
+\item{P}{an object of class \code{multimixParamList} which is a \code{list} with the following elements:
 \itemize{
    \item{\code{dstat}}{ -- \code{list} of matrices for each discrete variable
     not included in a location model. The matrix for each discrete variable 
@@ -95,7 +95,7 @@ partition of the data.}
 }}
 }
 \value{
-an object of class \code{Pinfo}---see above.
+an object of class \code{multimixParamList}---see above.
 }
 \description{
 Uses the current group membership to estimate the probabilities.

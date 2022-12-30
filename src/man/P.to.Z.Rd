@@ -7,7 +7,7 @@
 P.to.Z(P, D)
 }
 \arguments{
-\item{P}{an object of class \code{Pinfo}--see \code{\link{Z.to.P}} for more
+\item{P}{an object of class \code{multimixParamList}--see \code{\link{Z.to.P}} for more
 information.}
 
 \item{D}{an object of class \code{multimixSettings}---see

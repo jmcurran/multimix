@@ -1,6 +1,6 @@
 #' The M(aximisation) step
 #'
-#' @param P an object of class \code{Pinfo}--see \code{\link{Z.to.P}} for more
+#' @param P an object of class \code{multimixParamList}--see \code{\link{Z.to.P}} for more
 #' information.
 #' @param D an object of class \code{multimixSettings}---see
 #'   \code{\link{data_organise}} for more information.

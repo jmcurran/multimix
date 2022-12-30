@@ -10,7 +10,7 @@
 #'   partition of the data.
 #' @param D an object of class \code{multimixSettings}---see
 #'   \code{\link{data_organise}} for details.
-#' @param P an object of class \code{Pinfo} which is a \code{list} with the following elements:
+#' @param P an object of class \code{multimixParamList} which is a \code{list} with the following elements:
 #' \itemize{
 #'    \item{\code{dstat}}{ -- \code{list} of matrices for each discrete variable
 #'     not included in a location model. The matrix for each discrete variable 
@@ -87,7 +87,7 @@
 #'    the continuous variables for each level-class combination. }
 #' }
 #'
-#' @return an object of class \code{Pinfo}---see above.
+#' @return an object of class \code{multimixParamList}---see above.
 #' @export
 Z.to.P <- function(Z, D, P) {
     with(c(D, P), {
@@ -173,7 +173,7 @@ Z.to.P <- function(Z, D, P) {
         P <- list(dstat = dstat, ldstat = ldstat, ostat = ostat, ostat2 = ostat2, ovar = ovar, pistat = pistat,
             cstat = cstat, cstat2 = cstat2, cvar = cvar, cpstat = cpstat, lcstat = lcstat, lcstat2 = lcstat2, lcpstat = lcpstat,
             MVMV = MVMV, LMV = LMV, W = W)
-        class(P) <- "Pinfo"
+        class(P) <- "multimixParamList"
         return(P)
     })
 }
