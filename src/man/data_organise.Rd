@@ -65,7 +65,7 @@ with the following elements:
    \item{\code{op}}{\code{length(olink)}}
    \item{\code{ovals}}{\code{n} by \code{op} matrix of continuous univariate variables}
    \item{\code{ovals2}}{\code{n} by \code{op} matrix of squared continuous univariate variables}
-   \item{\code{qq}}{the number of clusters in the model.}
+   \item{\code{numClusters}}{the number of clusters in the model.}
 }
 }
 \description{

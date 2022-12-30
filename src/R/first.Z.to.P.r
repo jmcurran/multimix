@@ -14,7 +14,7 @@
 #' @export
 first.Z.to.P <- function(D, Z) {
     with(D, {
-        ## Z <- make_Z_random(qq) attr(Z,'assign') <- NULL attr(Z,'contrasts') <- NULL colnames(Z) <-
+        ## Z <- make_Z_random(numClusters) attr(Z,'assign') <- NULL attr(Z,'contrasts') <- NULL colnames(Z) <-
         ## NULL Set up store structures for sufficient statistics.  Values given not important.
         dstat <- vector("list", length(dlink))
         ldstat <- vector("list", length(ldlink))
@@ -29,18 +29,18 @@ first.Z.to.P <- function(D, Z) {
         MVMV <- list()
         for (i in seq_along(cdep)) {
             MVMV[[i]] <- list()
-            for (j in seq_len(qq)) {
+            for (j in seq_len(numClusters)) {
                 MVMV[[i]][[j]] <- diag(length(cdep[[i]]))
             }
         }
         LMV <- list()
         for (i in seq_along(lcdep)) {
             LMV[[i]] <- list()
-            for (j in seq_len(qq)) {
+            for (j in seq_len(numClusters)) {
                 LMV[[i]][[j]] <- diag(length(lcdep[[i]]) - 1)
             }
         }
-        results <- matrix(0, nrow = nIt + 1, ncol = qq + 2)
+        results <- matrix(0, nrow = nIt + 1, ncol = numClusters + 2)
         ppi <- colSums(Z)/n
         W <- Z %*% diag(1/{
             n * ppi
@@ -77,7 +77,7 @@ first.Z.to.P <- function(D, Z) {
             cvar[[i]] <- cstat2[[i]] - {
                 cstat[[i]]
             }^2
-            for (j in 1:qq) {
+            for (j in 1:numClusters) {
                 for (k in seq_along(cdep[[i]])) {
                   MVMV[[i]][[j]][k, k] = cvar[[i]][j, k]
                 }
@@ -85,7 +85,7 @@ first.Z.to.P <- function(D, Z) {
             for (ii in seq_len(nxp)) {
                 ccov[[i]][, ii] <- (cpstat[[i]][, ii] - cstat[[i]][, left(ii)] * cstat[[i]][, right(ii)])
             }
-            for (j in 1:qq) {
+            for (j in 1:numClusters) {
                 for (ii in seq_len(nxp)) {
                   MVMV[[i]][[j]][left(ii), right(ii)] <- MVMV[[i]][[j]][right(ii), left(ii)] <- ccov[[i]][j,
                     ii]
@@ -98,7 +98,7 @@ first.Z.to.P <- function(D, Z) {
         for (i in seq_along(lcdep)) {
             lcdi <- length(lcdep[[i]]) - 1
             nxp <- lcdi * (lcdi - 1)/2
-            for (j in 1:qq) {
+            for (j in 1:numClusters) {
                 Temp <- rep(0, lcdi)
                 for (lv in seq_len(ldlevs[i])) {
                   lcvar[[i]][[lv]] <- lcstat2[[i]][[lv]] - {

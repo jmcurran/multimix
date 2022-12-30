@@ -1,6 +1,6 @@
 #' Make initial Z matrix from initial assignment of observations to clusters
 #'
-#' Z is an \eqn{n}{n} by \eqn{qq}{qq} matrix of non-negative numbers whose rows
+#' Z is an \eqn{n}{n} by \eqn{numClusters}{numClusters} matrix of non-negative numbers whose rows
 #' sum to 1. The \eqn{ij^{\mathrm{th}}}{ij^th} element \eqn{z_{ij}}{z_ij} is a
 #' probability that observation \eqn{i}{i} belongs to cluster \eqn{j}{j}. Rather
 #' than begin from an initial assignment Multimix allows for a weighted

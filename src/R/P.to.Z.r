@@ -12,16 +12,16 @@
 P.to.Z <- function(P, D) {
     with(c(P, D), {
       #browser()
-        ollq <- matrix(0, nrow = n, ncol = qq)
-        for (j in 1:qq) {
+        ollq <- matrix(0, nrow = n, ncol = numClusters)
+        for (j in 1:numClusters) {
             ldens <- dnorm(as.vector(ovals), rep(ostat[j, ], rep(n, op)), rep(sqrt(ovar)[j, ], rep(n, op)),
                 log = TRUE)
             lDENS <- matrix(ldens, nrow = n)
             ollq[, j] <- rowSums(lDENS)
         }
 
-        cll <- matrix(0, nrow = n, ncol = qq)
-        for (j in 1:qq) {
+        cll <- matrix(0, nrow = n, ncol = numClusters)
+        for (j in 1:numClusters) {
             cno <- 0
             while (cno < length(cdep)) {
                 cno <- cno + 1
@@ -30,8 +30,8 @@ P.to.Z <- function(P, D) {
             }
         }
 
-        dllq <- matrix(0, nrow = n, ncol = qq)
-        for (j in 1:qq) {
+        dllq <- matrix(0, nrow = n, ncol = numClusters)
+        for (j in 1:numClusters) {
             for (v in seq_along(dstat)) {
                 for (k in seq_len(dlevs[v])) {
                   dvk <- dvals[[v]][, k]
@@ -40,8 +40,8 @@ P.to.Z <- function(P, D) {
             }
         }
 
-        ldllq <- matrix(0, nrow = n, ncol = qq)
-        for (j in 1:qq) {
+        ldllq <- matrix(0, nrow = n, ncol = numClusters)
+        for (j in 1:numClusters) {
             for (v in seq_along(ldstat)) {
                 for (k in seq_len(ldlevs[v])) {
                   ldvk <- ldvals[[v]][, k]
@@ -50,9 +50,9 @@ P.to.Z <- function(P, D) {
             }
         }
 
-        lcll <- matrix(0, nrow = n, ncol = qq)
+        lcll <- matrix(0, nrow = n, ncol = numClusters)
         lmean <- list()
-        for (j in 1:qq) {
+        for (j in 1:numClusters) {
             cno <- 0
             w <- W[, j]
             while (cno < length(lcdep)) {
@@ -75,7 +75,7 @@ P.to.Z <- function(P, D) {
         expld <- exp(llx - rmx)
         pf_ <- t(expld) * pistat
         pstar <- colSums(pf_)
-        pf_[, pstar < minpstar] <- 1/qq
+        pf_[, pstar < minpstar] <- 1/numClusters
         pstar[pstar < minpstar] <- 1
         Z <- t(pf_)/pstar
         llik <- sum(log(pstar) + rmx)

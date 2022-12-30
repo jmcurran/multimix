@@ -45,7 +45,7 @@
 #'    \item{\code{op}}{\code{length(olink)}}
 #'    \item{\code{ovals}}{\code{n} by \code{op} matrix of continuous univariate variables}
 #'    \item{\code{ovals2}}{\code{n} by \code{op} matrix of squared continuous univariate variables}
-#'    \item{\code{qq}}{the number of clusters in the model.}
+#'    \item{\code{numClusters}}{the number of clusters in the model.}
 #' }
 #' @export
 #'
@@ -135,7 +135,7 @@ data_organise <- function(dframe,
         discvar = discvar, dlevs = dlevs, dlink = dlink, dvals = dvals, lc = lc, lcdep = lcdep, lcdisc = lcdisc,
         lclink = lclink, lcprods = lcprods, lcvals = lcvals, lcvals2 = lcvals2, ld = ld, ldlevs = ldlevs, ldlink = ldlink,
         ldvals = ldvals, ldxc = ldxc, mc = mc, md = md, minpstar = minpstar, n = n, nIt = niter, oc = oc, olink = olink,
-        op = op, ovals = ovals, ovals2 = ovals2, qq = numClusters)
+        op = op, ovals = ovals, ovals2 = ovals2, numClusters = numClusters)
     
     class(D) = "multimixSettings"
     return(D)

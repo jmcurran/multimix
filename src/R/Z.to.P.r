@@ -126,7 +126,7 @@ Z.to.P <- function(Z, D, P) {
             cvar[[i]] <- cstat2[[i]] - {
                 cstat[[i]]
             }^2
-            for (j in 1:qq) {
+            for (j in 1:numClusters) {
                 for (k in seq_along(cdep[[i]])) {
                   MVMV[[i]][[j]][k, k] = cvar[[i]][j, k]
                 }
@@ -134,7 +134,7 @@ Z.to.P <- function(Z, D, P) {
             for (ii in seq_len(nxp)) {
                 ccov[[i]][, ii] <- (cpstat[[i]][, ii] - cstat[[i]][, left(ii)] * cstat[[i]][, right(ii)])
             }
-            for (j in 1:qq) {
+            for (j in 1:numClusters) {
                 for (ii in seq_len(nxp)) {
                   MVMV[[i]][[j]][left(ii), right(ii)] <- MVMV[[i]][[j]][right(ii), left(ii)] <- ccov[[i]][j, ii]
                 }
@@ -146,7 +146,7 @@ Z.to.P <- function(Z, D, P) {
         for (i in seq_along(lcdep)) {
             lcdi <- length(lcdep[[i]]) - 1
             nxp <- lcdi * (lcdi - 1)/2
-            for (j in 1:qq) {
+            for (j in 1:numClusters) {
                 Temp <- rep(0, lcdi)
                 for (lv in seq_len(ldlevs[i])) {
                   lcvar[[i]][[lv]] <- lcstat2[[i]][[lv]] - {
