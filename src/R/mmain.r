@@ -13,6 +13,14 @@
 #'   \eqn{numClusters}{numClusters} columns.
 #' @export
 #' @importFrom stats model.matrix runif
+#' @examples
+#' data(cancer.df)
+#' D <- data_organise(cancer.df, numClusters = 2)
+#' stage = scan(system.file("extdata", "Stage.txt", package = "multimix")) - 2
+#' Z <- make_Z_discrete(stage)
+#' P <- first.Z.to.P(D,Z) 
+#' zpr <- mmain(D,Z,P)
+#' zpr
 mmain <- function(D, Z, P, eps = 1e-9){
     numIter <- D$numIter
     numClusters <- ncol(Z)
