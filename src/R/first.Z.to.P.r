@@ -12,7 +12,7 @@
 #' @return an object of class \code{multimixParamList}---see \code{\link{Z.to.P}} for more
 #' information.
 #' @export
-first.Z.to.P <- function(D, Z) {
+initParamList <- function(D, Z) {
     with(D, {
         ## Z <- make_Z_random(numClusters) attr(Z,'assign') <- NULL attr(Z,'contrasts') <- NULL colnames(Z) <-
         ## NULL Set up store structures for sufficient statistics.  Values given not important.
