@@ -39,7 +39,7 @@ stat.store <- function(D) {
     
     for (j in seq_len(D$qq)) {
       MVMV[[i]][[j]] <- diag(length(cdep[[i]]))
-    }}
+    }
   }
   
   return(P)
