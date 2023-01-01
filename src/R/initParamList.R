@@ -276,7 +276,7 @@ initParamListNew <- function(D, Z) {
             MVMV = MVMV,
             ostat = ostat,
             ovar = ovar,
-            pistat = pstat,
+            pistat = pistat,
             W = W)
   
   class(P) = "multimixParamList"
