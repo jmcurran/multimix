@@ -29,14 +29,14 @@ mmain <- function(D, Z, P, eps = 1e-9){
     colnames(results)[2:(numClusters + 1)] = paste0("Pr(G", 1:numClusters, ")")
     cyc <- 0
     zll <- P.to.Z(P, D)
-    Z <- zll[[1]]
-    llik <- zll[[2]]
+    Z <- zll$Z
+    llik <- zll$llik
     repeat {
         cyc <- cyc + 1
-        P <- Z.to.P(Z, D, P)
+        P <- Z.to.Pnew(Z, D, P)
         zll <- P.to.Znew(P, D)
-        Z <- zll[[1]]
-        deltall <- zll[[2]] - llik
+        Z <- zll$Z
+        deltall <- zll$llik - llik
         if (deltall <= eps)
             break  # Explore choosing various epsilons, even 0.
         llik <- llik + deltall
