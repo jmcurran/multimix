@@ -113,50 +113,49 @@ P.to.Znew <- function(P, D) {
     
     
     ## computer dllq
-    for (v in seq_along(dstat)) {
-      for (k in seq_len(dlevs[v])) {
-        dvk <- dvals[[v]][, k]
-        dllq[, j] <- dllq[, j] + dvk * log(dstat[[v]][j, k] + !dvk)
+    for (v in seq_along(P$dstat)) {
+      for (k in seq_len(D$dlevs[v])) {
+        dvk <- D$dvals[[v]][, k]
+        dllq[, j] <- dllq[, j] + dvk * log(P$dstat[[v]][j, k] + !dvk)
       }
     }
     
     
     ## compute ldllq
-    for (v in seq_along(ldstat)) {
-      for (k in seq_len(ldlevs[v])) {
-        ldvk <- ldvals[[v]][, k]
-        ldllq[, j] <- ldllq[, j] + ldvk * log(ldstat[[v]][j, k] + !ldvk)
+    for (v in seq_along(P$ldstat)) {
+      for (k in seq_len(D$ldlevs[v])) {
+        ldvk <- D$ldvals[[v]][, k]
+        ldllq[, j] <- ldllq[, j] + ldvk * log(P$ldstat[[v]][j, k] + !ldvk)
       }
     }
-  }
-  
-  lmean <- list()
-  for (j in seq_len(D$numClusters)) {
-    cno <- 0
-    w <- W[, j]
-    while (cno < length(lcdep)) {
-      cno <- cno + 1
-      nlev <- length(ldxc[[cno]])
+
+    lmean <- list()
+    w <- P$W[, j]
+    
+    for (cno in seq_along(D$lcdep)) {
+      nlev <- length(D$ldxc[[cno]])
       est <- vector("list", nlev)
-      ndw <- colSums(diag(w) %*% ldvals[[cno]])
+      ndw <- colSums(diag(w) %*% D$ldvals[[cno]])
       for (lev in seq_len(nlev)) {
-        wdxc_ <- diag(w) %*% ldxc[[cno]][[lev]]
-        est[[lev]] <- colSums(wdxc_)/ndw[lev]
+        wdxc_ <- diag(w) %*% D$ldxc[[cno]][[lev]]
+        est[[lev]] <- colSums(wdxc_) / ndw[lev]
       }
-      lmean[[cno]] <- ldvals[[cno]] %*% do.call(rbind, est)
-      lcll[, j] <- lcll[, j] + dmvnorm(lcvals[[cno]] - lmean[[cno]], mean = rep(0, dim(lcvals[[cno]])[2]),
-                                       sigma = LMV[[cno]][[j]], log = TRUE)
+      lmean[[cno]] <- D$ldvals[[cno]] %*% do.call(rbind, est)
+      lcll[, j] <- lcll[, j] + dmvnorm(D$lcvals[[cno]] - lmean[[cno]], 
+                                       mean = rep(0, ncol(D$lcvals[[cno]])),
+                                       sigma = P$LMV[[cno]][[j]], 
+                                       log = TRUE)
     }
   }
   
   llx <- ollq + cll + dllq + ldllq + lcll
   rmx <- apply(llx, 1, max)
   expld <- exp(llx - rmx)
-  pf_ <- t(expld) * pistat
+  pf_ <- t(expld) * P$pistat
   pstar <- colSums(pf_)
-  pf_[, pstar < minpstar] <- 1/numClusters
-  pstar[pstar < minpstar] <- 1
-  Z <- t(pf_)/pstar
+  pf_[, pstar < D$minpstar] <- 1 / D$numClusters
+  pstar[pstar < D$minpstar] <- 1
+  Z <- t(pf_) / pstar
   llik <- sum(log(pstar) + rmx)
   zll <- list(Z = Z, llik = llik)
 
