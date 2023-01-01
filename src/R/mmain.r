@@ -34,7 +34,7 @@ mmain <- function(D, Z, P, eps = 1e-9){
     repeat {
         cyc <- cyc + 1
         P <- Z.to.P(Z, D, P)
-        zll <- P.to.Z(P, D)
+        zll <- P.to.Znew(P, D)
         Z <- zll[[1]]
         deltall <- zll[[2]] - llik
         if (deltall <= eps)
