@@ -2,7 +2,7 @@
 % Please edit documentation in R/Z.to.P.r
 \name{Z.to.P}
 \alias{Z.to.P}
-\title{The E(xpectation) step}
+\title{The M(aximisation) step}
 \usage{
 Z.to.P(Z, D, P)
 }

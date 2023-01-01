@@ -2,7 +2,7 @@
 % Please edit documentation in R/P.to.Z.r
 \name{P.to.Z}
 \alias{P.to.Z}
-\title{The M(aximisation) step}
+\title{The E(xpectation) step}
 \usage{
 P.to.Z(P, D)
 }
@@ -19,5 +19,5 @@ a \code{list} containing two elements: a \code{matrix} named
 \code{llik} containing the current value of the log-likelihood.
 }
 \description{
-The M(aximisation) step
+The E(xpectation) step
 }

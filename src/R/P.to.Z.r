@@ -1,4 +1,4 @@
-#' The M(aximisation) step
+#' The E(xpectation) step
 #'
 #' @param P an object of class \code{multimixParamList}--see \code{\link{Z.to.P}} for more
 #' information.
@@ -86,7 +86,7 @@ P.to.Z <- function(P, D) {
     })
 }
 
-P.to.Znew <- function(P, D) {
+eStep <- function(P, D) {
   ollq <- 
     cll <- 
     dllq <- 

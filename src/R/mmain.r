@@ -33,18 +33,24 @@ mmain <- function(D, Z, P, eps = 1e-9){
     llik <- zll$llik
     repeat {
         cyc <- cyc + 1
-        P <- Z.to.Pnew(Z, D, P)
-        zll <- P.to.Znew(P, D)
+        
+        P <- mStep(Z, D, P)
+        zll <- eStep(P, D)
+        
         Z <- zll$Z
         deltall <- zll$llik - llik
+        
         if (deltall <= eps)
             break  # Explore choosing various epsilons, even 0.
+        
         llik <- llik + deltall
+        
         if (cyc >= numIter)
             break
-        results[cyc + 1, ] <- c(llik, P$pistat, cyc)
+        
+        results[cyc, ] <- c(llik, P$pistat, cyc)
     }  #cyc
-    zpr <- list(Z = Z, P = P, results = results[1:cyc,])
+    zpr <- list(Z = Z, P = P, results = results[1:(cyc - 1),])
     class(zpr) = "multimixResults"
     return(zpr)
 }

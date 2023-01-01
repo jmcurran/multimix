@@ -1,4 +1,4 @@
-#' The E(xpectation) step
+#' The M(aximisation) step
 #'
 #' Uses the current group membership to estimate the probabilities.
 #'
@@ -179,7 +179,7 @@ Z.to.P <- function(Z, D, P) {
 }
 
 
-Z.to.Pnew <- function(Z, D, P) {
+mStep <- function(Z, D, P) {
   P$pistat <- colMeans(Z)
   P$W <- Z %*% diag(1 / (D$n * P$pistat))  # Z scaled to have columns sum to 1 for use as weights.
   
