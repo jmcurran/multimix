@@ -16,41 +16,41 @@
 #' @examples
 #' data(cancer.df)
 #' D <- data_organise(cancer.df, numClusters = 2)
-#' stage <- scan(system.file("extdata", "Stage.txt", package = "multimix")) - 2
+#' stage <- scan(system.file('extdata', 'Stage.txt', package = 'multimix')) - 2
 #' Z <- make_Z_discrete(stage)
 #' P <- initParamList(D,Z) 
 #' zpr <- mmain(D,Z,P)
 #' zpr
-mmain <- function(D, Z, P, eps = 1e-9){
-    numIter <- D$numIter
-    numClusters <- ncol(Z)
-    results <- matrix(0, nrow = numIter + 2, ncol = numClusters + 2)
-    colnames(results)[c(1, numClusters + 2)] = c("Log-likelihood", "Iteration")
-    colnames(results)[2:(numClusters + 1)] = paste0("Pr(G", 1:numClusters, ")")
-    cyc <- 0
-    zll <- P.to.Z(P, D)
+mmain <- function(D, Z, P, eps = 1e-09) {
+  numIter <- D$numIter
+  numClusters <- ncol(Z)
+  results <- matrix(0, nrow = numIter + 2, ncol = numClusters + 2)
+  colnames(results)[c(1, numClusters + 2)] = c("Log-likelihood", "Iteration")
+  colnames(results)[2:(numClusters + 1)] = paste0("Pr(G", 1:numClusters, ")")
+  cyc <- 0
+  zll <- P.to.Z(P, D)
+  Z <- zll$Z
+  llik <- zll$llik
+  repeat {
+    cyc <- cyc + 1
+
+    P <- mStep(Z, D, P)
+    zll <- eStep(P, D)
+
     Z <- zll$Z
-    llik <- zll$llik
-    repeat {
-        cyc <- cyc + 1
-        
-        P <- mStep(Z, D, P)
-        zll <- eStep(P, D)
-        
-        Z <- zll$Z
-        deltall <- zll$llik - llik
-        
-        if (deltall <= eps)
-            break  # Explore choosing various epsilons, even 0.
-        
-        llik <- llik + deltall
-        
-        if (cyc >= numIter)
-            break
-        
-        results[cyc, ] <- c(llik, P$pistat, cyc)
-    }  #cyc
-    zpr <- list(Z = Z, P = P, results = results[1:(cyc - 1),])
-    class(zpr) = "multimixResults"
-    return(zpr)
+    deltall <- zll$llik - llik
+
+    if (deltall <= eps)
+      break  # Explore choosing various epsilons, even 0.
+
+    llik <- llik + deltall
+
+    if (cyc >= numIter)
+      break
+
+    results[cyc, ] <- c(llik, P$pistat, cyc)
+  }  #cyc
+  zpr <- list(Z = Z, P = P, results = results[1:(cyc - 1), ])
+  class(zpr) = "multimixResults"
+  return(zpr)
 }

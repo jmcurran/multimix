@@ -13,7 +13,7 @@
 #' 
 #' x = c(1, 1, 1, 2, 3)
 #' count.unique(x)
-count.unique <- function(x){ 
+count.unique <- function(x) {
   length(unique(x))
 }
 
@@ -33,7 +33,7 @@ count.unique <- function(x){
 #' pair.index(11,17)
 #' pair.index(2,12)
 pair.index <- function(u, v) {
-    0.5 * v^2 - 1.5 * v + u + 1
+  0.5 * v^2 - 1.5 * v + u + 1
 }
 
 #' Map integer index N>0 back to right member of generating pair.
@@ -47,7 +47,7 @@ pair.index <- function(u, v) {
 #' right(131)
 #' right(57)
 right <- function(N) {
-    floor(1.5 + 0.5 * sqrt(-7 + 8 * N))
+  floor(1.5 + 0.5 * sqrt(-7 + 8 * N))
 }
 
 
@@ -62,6 +62,6 @@ right <- function(N) {
 #' left(131)
 #' left(57)
 left <- function(N) {
-    N - pair.index(1, right(N)) + 1
+  N - pair.index(1, right(N)) + 1
 }
 

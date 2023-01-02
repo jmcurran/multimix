@@ -10,12 +10,12 @@
 #'
 #' @param d integer
 #'
-#' @return a \code{matrix} whose entries are either 0 or 1.
+#' @return a \code{matrix} whose entries are non-negative, and whose entries sum to 1.
 #' @importFrom stats model.matrix
 #' @export
 #'
 #' @examples
-#' stage = scan(file = system.file("extdata", "Stage.txt", package = "multimix"))
+#' stage = scan(file = system.file('extdata', 'Stage.txt', package = 'multimix'))
 #' stage = stage - 2
 #' Z = make_Z_discrete(stage)
 make_Z_discrete <- function(d) {
@@ -26,6 +26,6 @@ make_Z_discrete <- function(d) {
   attr(Z, "assign") <- NULL
   attr(Z, "contrasts") <- NULL
   colnames(Z) <- NULL
-  
+
   return(Z)
 }

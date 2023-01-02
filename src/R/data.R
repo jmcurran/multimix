@@ -21,9 +21,9 @@
 #' covariates were omitted from furtheranalysis, leaving 475 out of the 
 #' original 506 observations available. 
 #' 
-#' The categorical variable \code{Patient activity} had 4 levels: "Normally 
-#' Active", "Bed rest below 50% of waking hours", "Bed rest 50% of waking hours
-#' or more", and "Confined to bed". The numbers of the 475 in these groups were
+#' The categorical variable \code{Patient activity} had 4 levels: 'Normally 
+#' Active', 'Bed rest below 50% of waking hours', 'Bed rest 50% of waking hours
+#' or more', and 'Confined to bed'. The numbers of the 475 in these groups were
 #'  428, 32, 12, and 3. The least active two groups are grouped in our data,
 #' giving 3 groups of size 428, 32, and 15.
 #'
@@ -46,11 +46,11 @@
 #' @usage 
 #' data(cancer.df)
 #'
-#' @source D.P. Byar and S.B. Green "The choice of treatment for cancer patients
-#'   based on covariate information - application to prostate cancer", Bulletin
+#' @source D.P. Byar and S.B. Green 'The choice of treatment for cancer patients
+#'   based on covariate information - application to prostate cancer', Bulletin
 #'   du Cancer 1980: 67:477--490, reproduced in D.A. Andrews and A.M. Herzberg
-#'   "Data: a collection of problems from many fields for the student and
-#'   research worker" p.261--274 Springer series in statistics, Springer-Verlag.
+#'   'Data: a collection of problems from many fields for the student and
+#'   research worker' p.261--274 Springer series in statistics, Springer-Verlag.
 #'   New York.
 "cancer.df"
 
@@ -60,19 +60,19 @@
 #' Prevalence Survey. The cases are 1473 married women who were either not 
 #' pregnant or do not know if they were at the time of interview. 
 #' 
-#' The variables "age" (in years) and "nborn" (ranging from 0 to 16) would
-#' normally be treated as continuous; "nborn" is skew and might well
+#' The variables 'age' (in years) and 'nborn' (ranging from 0 to 16) would
+#' normally be treated as continuous; 'nborn' is skew and might well
 #' be transformed. The remaining 8 variables are categorical. 
 #' 
-#' The variables "edu", "eduh" and "sol" take values "1,2,3,4", #' they are 
-#' ordinal with 1 = low and 4 = high. The variable "husocc" takes the
+#' The variables 'edu', 'eduh' and 'sol' take values '1,2,3,4', #' they are 
+#' ordinal with 1 = low and 4 = high. The variable 'husocc' takes the
 #' same 4 values, but it is not clear if the order has any significance.
 #' 
-#' The variables "islam", "working", and "medex" are binary (9,1)-valued with
-#' 0=Non-Islam, 1=Islam for "islam";  0=Yes, 1=No for "working"; and 0=Good, 
-#' 1=Not good for "medex".
+#' The variables 'islam', 'working', and 'medex' are binary (9,1)-valued with
+#' 0=Non-Islam, 1=Islam for 'islam';  0=Yes, 1=No for 'working'; and 0=Good, 
+#' 1=Not good for 'medex'.
 #' 
-#' The variable "method" is ternary: 1=No-use, 2=Long-term, 3=Short-term.
+#' The variable 'method' is ternary: 1=No-use, 2=Long-term, 3=Short-term.
 #' 
 #' @format A data.frame with 1473 rows and 10 columns:
 #' \describe{
@@ -91,7 +91,7 @@
 #' @usage 
 #' data(cmc.df)
 #'   
-#' @source Tjen-Sien Lim "Contraceptive Method Choice" 1997,
+#' @source Tjen-Sien Lim 'Contraceptive Method Choice' 1997,
 #'    UCI Machine Learning Repository [http://archive.ics.uci.edu/ml]. 
 #'   Irvine, CA: University of California, School of Information and Computer 
 #'   Science.

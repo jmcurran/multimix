@@ -13,14 +13,14 @@
 #' @export
 #'
 #' @examples
-#' Z <- make_Z_fortran(system.file("extdata", "GROUPS-BP-Multimixf90.OUT", 
-#'                     package = "multimix"))
+#' Z <- make_Z_fortran(system.file('extdata', 'GROUPS-BP-Multimixf90.OUT', 
+#'                     package = 'multimix'))
 make_Z_fortran <- function(gr.out = "groups.out") {
   # Read Z from FORTRAN output. Make into R matrix.
   grout <- read.table(gr.out, header = FALSE)
-    nc <- dim(grout)[2]
-    Z <- as.matrix(grout[, -c(1, nc)])
-    colnames(Z) <- NULL
-	
-    return(Z)
+  nc <- ncol(grout)
+  Z <- as.matrix(grout[, -c(1, nc)])
+  colnames(Z) <- NULL
+
+  return(Z)
 }

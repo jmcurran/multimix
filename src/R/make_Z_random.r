@@ -8,7 +8,7 @@
 #' probabilities of belonging to any cluster in a previous clustering.
 #'
 #' @param n integer - the number of observations.
-#' @param xq   integer # Number of random "clusters" to be generated.
+#' @param numClusters   integer # Number of random 'clusters' to be generated.
 #' @param seed integer # Suggest using date as seed for random numbers.
 #'
 #' @return a matrix.
@@ -17,16 +17,16 @@
 #'
 #' @examples
 #' make_Z_random(3, 271222)
-make_Z_random <- function(n, xq, seed = 310322) {
-    set.seed(seed)
-    x <- runif(n, 0, xq)
-    x <- (n * x + 0.1)/(n + 0.2)
-    y <- ceiling(x)
-    Init_grp = as.factor(y)
-    Z <- model.matrix(~0 + Init_grp)
-    attr(Z, "assign") <- NULL
-    attr(Z, "contrasts") <- NULL
-    colnames(Z) <- NULL
-	
-    return(Z)
+make_Z_random <- function(n, numClusters, seed = 310322) {
+  set.seed(seed)
+  x <- runif(n, 0, numClusters)
+  x <- (n * x + 0.1)/(n + 0.2)
+  y <- ceiling(x)
+  Init_grp = as.factor(y)
+  Z <- model.matrix(~0 + Init_grp)
+  attr(Z, "assign") <- NULL
+  attr(Z, "contrasts") <- NULL
+  colnames(Z) <- NULL
+
+  return(Z)
 }

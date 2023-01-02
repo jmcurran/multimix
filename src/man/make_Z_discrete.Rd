@@ -10,7 +10,7 @@ make_Z_discrete(d)
 \item{d}{integer}
 }
 \value{
-a \code{matrix} whose entries are either 0 or 1.
+a \code{matrix} whose entries are non-negative, and whose entries sum to 1.
 }
 \description{
 Z is an \eqn{n}{n} by \eqn{numClusters}{numClusters} matrix of non-negative numbers whose rows

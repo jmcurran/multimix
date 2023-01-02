@@ -21,6 +21,6 @@ This function facilitates the obtaining of Multimix R output given
 Multimix FORTRAN output.
 }
 \examples{
-Z <- make_Z_fortran(system.file("extdata", "GROUPS-BP-Multimixf90.OUT", 
-                    package = "multimix"))
+Z <- make_Z_fortran(system.file('extdata', 'GROUPS-BP-Multimixf90.OUT', 
+                    package = 'multimix'))
 }
