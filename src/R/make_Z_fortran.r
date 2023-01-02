@@ -24,3 +24,16 @@ make_Z_fortran <- function(gr.out = "groups.out") {
 
   return(Z)
 }
+
+make_Z_fortrannew <- function(gr.out = "groups.out") {
+  # Read Z from FORTRAN output. Make into R matrix.
+  grout <- read.table(gr.out, header = FALSE)
+  Init_grp = as.factor(grout[,1])
+  Z <- model.matrix(~0 + Init_grp)
+  attr(Z, "assign") <- NULL
+  attr(Z, "contrasts") <- NULL
+  colnames(Z) <- NULL
+  
+  return(Z)  
+}
+
