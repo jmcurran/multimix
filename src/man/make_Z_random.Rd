@@ -4,12 +4,12 @@
 \alias{make_Z_random}
 \title{Start from random groups of similar size.}
 \usage{
-make_Z_random(n, xq, seed = 310322)
+make_Z_random(n, numClusters, seed = 310322)
 }
 \arguments{
 \item{n}{integer - the number of observations.}
 
-\item{xq}{integer # Number of random "clusters" to be generated.}
+\item{numClusters}{integer # Number of random 'clusters' to be generated.}
 
 \item{seed}{integer # Suggest using date as seed for random numbers.}
 }

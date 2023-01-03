@@ -20,7 +20,7 @@ A data.frame with 1473 rows and 10 columns:
 }
 }
 \source{
-Tjen-Sien Lim "Contraceptive Method Choice" 1997,
+Tjen-Sien Lim 'Contraceptive Method Choice' 1997,
    UCI Machine Learning Repository [http://archive.ics.uci.edu/ml]. 
   Irvine, CA: University of California, School of Information and Computer 
   Science.
@@ -34,18 +34,18 @@ Prevalence Survey. The cases are 1473 married women who were either not
 pregnant or do not know if they were at the time of interview.
 }
 \details{
-The variables "age" (in years) and "nborn" (ranging from 0 to 16) would
-normally be treated as continuous; "nborn" is skew and might well
+The variables 'age' (in years) and 'nborn' (ranging from 0 to 16) would
+normally be treated as continuous; 'nborn' is skew and might well
 be transformed. The remaining 8 variables are categorical. 
 
-The variables "edu", "eduh" and "sol" take values "1,2,3,4", #' they are 
-ordinal with 1 = low and 4 = high. The variable "husocc" takes the
+The variables 'edu', 'eduh' and 'sol' take values '1,2,3,4', #' they are 
+ordinal with 1 = low and 4 = high. The variable 'husocc' takes the
 same 4 values, but it is not clear if the order has any significance.
 
-The variables "islam", "working", and "medex" are binary (9,1)-valued with
-0=Non-Islam, 1=Islam for "islam";  0=Yes, 1=No for "working"; and 0=Good, 
-1=Not good for "medex".
+The variables 'islam', 'working', and 'medex' are binary (9,1)-valued with
+0=Non-Islam, 1=Islam for 'islam';  0=Yes, 1=No for 'working'; and 0=Good, 
+1=Not good for 'medex'.
 
-The variable "method" is ternary: 1=No-use, 2=Long-term, 3=Short-term.
+The variable 'method' is ternary: 1=No-use, 2=Long-term, 3=Short-term.
 }
 \keyword{datasets}

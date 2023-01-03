@@ -23,7 +23,7 @@ assignment accross several clusters.
 This function yields a 0/1 valued matrix.
 }
 \examples{
-stage = scan(file = system.file("extdata", "Stage.txt", package = "multimix"))
+stage = scan(file = system.file('extdata', 'Stage.txt', package = 'multimix'))
 stage = stage - 2
 Z = make_Z_discrete(stage)
 }

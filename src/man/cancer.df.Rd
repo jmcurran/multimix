@@ -22,11 +22,11 @@ A data.frame with 475 rows and 12 columns:
 }
 }
 \source{
-D.P. Byar and S.B. Green "The choice of treatment for cancer patients
-  based on covariate information - application to prostate cancer", Bulletin
+D.P. Byar and S.B. Green 'The choice of treatment for cancer patients
+  based on covariate information - application to prostate cancer', Bulletin
   du Cancer 1980: 67:477--490, reproduced in D.A. Andrews and A.M. Herzberg
-  "Data: a collection of problems from many fields for the student and
-  research worker" p.261--274 Springer series in statistics, Springer-Verlag.
+  'Data: a collection of problems from many fields for the student and
+  research worker' p.261--274 Springer series in statistics, Springer-Verlag.
   New York.
 }
 \usage{
@@ -55,9 +55,9 @@ Observations that had missing values in any of the twelve pretreatment
 covariates were omitted from furtheranalysis, leaving 475 out of the 
 original 506 observations available. 
 
-The categorical variable \code{Patient activity} had 4 levels: "Normally 
-Active", "Bed rest below 50% of waking hours", "Bed rest 50% of waking hours
-or more", and "Confined to bed". The numbers of the 475 in these groups were
+The categorical variable \code{Patient activity} had 4 levels: 'Normally 
+Active', 'Bed rest below 50% of waking hours', 'Bed rest 50% of waking hours
+or more', and 'Confined to bed'. The numbers of the 475 in these groups were
  428, 32, 12, and 3. The least active two groups are grouped in our data,
 giving 3 groups of size 428, 32, and 15.
 }
