@@ -14,13 +14,17 @@ initParamList(D, Z)
 of rows of \code{dframe} and \eqn{q}{q} is the number of components in the
 mixture. During the fitting \eqn{Z_{ij}}{Zij} holds the currently estimated
 probability that observation \eqn{i}{i} belongs to component \eqn{j}{j}.
-Commonly \code{Z} is initialized to a matrix of indicator columns for a
-partition of the data.}
+Often \code{Z} is initialized to a matrix of indicator columns for a
+partition of the data. It is also common to initialize \code{Z} to be the
+final \code{Z} from the fitting of a simpler model.}
 }
 \value{
-an object of class \code{multimixParamList}---see \code{\link{Z.to.P}} for more
-information.
+an object of class \code{multimixParamList}---see 
+\code{\link{Z.to.P}} for more information.
 }
 \description{
-Initialise the parameter list.
+Although the starting parameter list \code{P} may be specified directly, 
+Note also that any matrices specified must be positive definite.
+This function calculates an initial \code{P} from \code{D} and a starting
+value for \code{Z}.
 }
