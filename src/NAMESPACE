@@ -2,11 +2,11 @@
 
 S3method(print,multimixResults)
 export(P.to.Z)
-export(Z.to.P)
 export(count.unique)
 export(data_organise)
 export(initParamList)
 export(left)
+export(mStep)
 export(make_Z_discrete)
 export(make_Z_fortran)
 export(make_Z_random)

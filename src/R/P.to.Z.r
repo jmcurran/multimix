@@ -1,12 +1,12 @@
 #' The E(xpectation) step
 #'
-#' @param P an object of class \code{multimixParamList}--see \code{\link{Z.to.P}} for more
-#' information.
+#' @param P an object of class \code{multimixParamList}--see 
+#' \code{\link{initParamList}} for more information.
 #' @param D an object of class \code{multimixSettings}---see
 #'   \code{\link{data_organise}} for more information.
 #'
 #' @return a \code{list} containing two elements: a \code{matrix} named 
-#' \code{Z}---see \code{\link{Z.to.P}} for more information, and a scalar
+#' \code{Z}---see \code{\link{mStep}} for more information, and a scalar
 #' \code{llik} containing the current value of the log-likelihood.
 #' @importFrom stats dnorm
 #' @importFrom mvtnorm dmvnorm

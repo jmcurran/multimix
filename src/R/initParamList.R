@@ -118,14 +118,14 @@ initParamList <- function(D, Z) {
 
   LMV <- list()
   for (i in seq_along(D$lcdep)) {
-    D$LMV[[i]] <- list()
+    LMV[[i]] <- list()
 
     for (j in seq_len(D$numClusters)) {
-      D$LMV[[i]][[j]] <- diag(length(D$lcdep[[i]]) - 1)
+      LMV[[i]][[j]] <- diag(length(D$lcdep[[i]]) - 1)
     }
   }
 
-  pistat <- colSums(Z)/D$n 
+  pistat <- colSums(Z) / D$n 
 
   W <- Z %*% diag(1/(D$n * pistat)) # Matrix of weights
 

@@ -19,8 +19,83 @@ partition of the data. It is also common to initialize \code{Z} to be the
 final \code{Z} from the fitting of a simpler model.}
 }
 \value{
-an object of class \code{multimixParamList}---see 
-\code{\link{Z.to.P}} for more information.
+an object of class \code{multimixParamList} which is a \code{list} 
+with the following elements:
+\itemize{
+   \item{\code{dstat}}{ -- \code{list} of matrices for each discrete variable
+    not included in a location model. The matrix for each discrete variable 
+    is made up of a column of length\eqn{q}{q} for each level (value) of the 
+    variable giving the expected proportion of each level (column) for each 
+    mixture component (row). Rows sum to 1.}
+   \item{\code{ldstat}}{ -- \code{list} of matrices for each discrete 
+   variable within a location model. The matrix for each discrete variable is
+    made up of a column of length\eqn{q}{q} for each level (value) of the 
+    variable giving the expected proportion of each level (column) for each 
+    mixture component (row). Rows sum to 1. }
+   \item{\code{ostat}}{ -- \code{matrix}  with a column for each continuous 
+   variable outside any location mode whose\eqn{q}{q} rows give the current 
+   estimated mean for each mixture component. }
+   \item{\code{ostat2}}{ -- \code{matrix} with a column for each continuous 
+   variable outside any location mode whose\eqn{q}{q}rows give the current 
+   estimated mean square for each mixture component. }
+   \item{\code{osvar}}{ -- \code{matrix} with a column for each continuous
+    variable outside any location mode whose\eqn{q}{q} rows give the current
+     estimated variance for each mixture component. }
+   \item{\code{cstat}}{ -- \code{list} with a member for each nontrivial, 
+   fully continuous, partition cell, that is not including discrete cells or 
+   cells listed in lcdep, each member being a \code{matrix} with a column for each 
+   continuous variable in that cell, whose\eqn{q}{q} rows give the current 
+   estimated mean for each mixture component. }
+   \item{\code{cstat2}}{ -- \code{list} with a member for each nontrivial, 
+   fully continuous, partition cell, each member being a \code{matrix} with a column
+    for each continuous variable in that cell, whose\eqn{q}{q} rows give the 
+    current estimated mean square for each mixture component. }
+   \item{\code{cvar}}{ -- \code{list} with a member for each nontrivial, 
+   fully continuous, partition cell, each member being av\code{matrix} with a column
+    for each continuous variable in that cell, whose\eqn{q}{q} rows give the 
+    current estimated variance for each mixture component. }
+   \item{\code{cpstat}}{ -- \code{list} with a member for each nontrivial, 
+   fully continuous, partition cell, each member being the \code{matrix} with rows 
+   for each of the\eqn{q}{q} mixture components and columns for each pair of 
+   continuous variables in that cell, as ordered by \code{\link{pair.index}}. 
+   The matrix 
+   elements are the currently expected products of the variable pairs 
+   arranged by component and pair. }
+   \item{\code{ccov}}{ -- \code{list} with a member for each nontrivial, 
+   fully continuous, partition cell, each member being the \code{matrix} with rows 
+   for each of the \eqn{q}{q} mixture components and columns for each pair of 
+   continuous variables in that cell, as ordered by pair.index. The matrix 
+   elements are the currently expected covariances of the variable pairs 
+   arranged by component and pair.}
+   \item{\code{MVMV}}{ -- \code{list} with a member for each nontrivial, 
+   fully continuous, partition cell, each member being a list with members 
+   for each of the \eqn{q}{q} mixture components whose values are the 
+   covariance matrix estimates for that cell and component. }
+   \item{\code{lcstat}}{ -- \code{list} with a member for location partition 
+   cell, each member being a \code{matrix} with a column for each continuous 
+   variable in that cell, whose\eqn{q}{q} rows give the current estimated
+    mean for each mixture component. }
+   \item{\code{lcstat2}}{ -- \code{list} with a member for location partition
+    cell, each member being a \code{matrix} with a column for each continuous 
+    variable in that cell, whose \eqn{q}{q} rows give the current estimated 
+    mean square for each mixture component. }
+   \item{\code{lcpstat}}{ -- \code{list} with a member for each location 
+   cell, each member being thev\code{matrix} with rows for each of the 
+   \eqn{q}{q} mixture components and columns for each pair of continuous 
+   variables in that cell, as ordered by \code{\link{pair.index}}. The matrix 
+   elements are the currently expected products of the variable pairs 
+   arranged by component and pair. }
+   \item{\code{lccov}}{ -- \code{list} with a member for each location cell, 
+   each member being the matrix with rows for each of the \eqn{q}{q} mixture 
+   components and columns for each pair of continuous variables in that cell,
+    as ordered by \code{\link{pair.index}}. The matrix elements are the 
+    currently estimated covariances of the variable pairs arranged by 
+    component and pair. }
+   \item{\code{ldxcstat}}{ -- \code{list} with a member for each location 
+   partition cell, each member being a list with a member for each level of 
+   the cell's discrete variable that member being a matrix of mean values of 
+   the continuous variables for each level-class combination. }
+}
 }
 \description{
 Although the starting parameter list \code{P} may be specified directly, 

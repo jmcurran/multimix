@@ -34,7 +34,7 @@ mmain <- function(D, Z, P, eps = 1e-09) {
   repeat {
     cyc <- cyc + 1
 
-    P <- mStep(Z, D, P)
+    P <- mStep(Z, D)
     zll <- eStep(P, D)
 
     Z <- zll$Z
