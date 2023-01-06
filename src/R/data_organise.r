@@ -51,7 +51,7 @@
 #'
 #' @examples
 #' data(cancer.df)
-#' mmObj = data_organise(cancer.df, numClusters = 2)
+#' D = data_organise(cancer.df, numClusters = 2)
 data_organise <- function(dframe, 
                           numClusters, 
                           numIter = 1000, 

@@ -73,5 +73,5 @@ Prepare data for use with multimix
 }
 \examples{
 data(cancer.df)
-mmObj = data_organise(cancer.df, numClusters = 2)
+D = data_organise(cancer.df, numClusters = 2)
 }

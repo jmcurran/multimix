@@ -4,17 +4,17 @@
 \alias{make_Z_random}
 \title{Start from random groups of similar size.}
 \usage{
-make_Z_random(n, numClusters, seed = 310322)
+make_Z_random(D)
 }
 \arguments{
-\item{n}{integer - the number of observations.}
-
-\item{numClusters}{integer # Number of random 'clusters' to be generated.}
-
-\item{seed}{integer # Suggest using date as seed for random numbers.}
+\item{D}{an object of class \code{multimixSettings} -- see 
+\code{\link{data_organise}} for more information.}
 }
 \value{
-a matrix.
+a matrix of dimension \eqn{n\times q}{n by q} where 
+\eqn{n}{n} is the number of observations in \code{D$dframe}
+and \eqn{q}{q} is the number of clusters in the model as specified
+by \code{D$numClusters}.
 }
 \description{
 A large number (\eqn{n}{n}) of observations are assigned randomly into
@@ -26,6 +26,8 @@ Also consider making additional clusters from observations with low
 probabilities of belonging to any cluster in a previous clustering.
 }
 \examples{
-Z = make_Z_random(300, 2, 271222)
+data(cancer.df)
+D = data_organise(cancer.df, numClusters = 2)
+Z = make_Z_random(D)
 table(Z)
 }

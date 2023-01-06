@@ -7,21 +7,32 @@
 #' Also consider making additional clusters from observations with low
 #' probabilities of belonging to any cluster in a previous clustering.
 #'
-#' @param n integer - the number of observations.
-#' @param numClusters   integer # Number of random 'clusters' to be generated.
-#' @param seed integer # Suggest using date as seed for random numbers.
+#' @param D   an object of class \code{multimixSettings} -- see 
+#' \code{\link{data_organise}} for more information.
 #'
-#' @return a matrix.
+#' @return a matrix of dimension \eqn{n\times q}{n by q} where 
+#' \eqn{n}{n} is the number of observations in \code{D$dframe}
+#' and \eqn{q}{q} is the number of clusters in the model as specified
+#' by \code{D$numClusters}.
+#' 
 #' @importFrom stats runif
 #' @export
 #'
 #' @examples
-#' Z = make_Z_random(300, 2, 271222)
+#' data(cancer.df)
+#' D = data_organise(cancer.df, numClusters = 2)
+#' Z = make_Z_random(D)
 #' table(Z)
-make_Z_random <- function(n, numClusters, seed = 310322) {
-  set.seed(seed)
+make_Z_random <- function(D) {
+  if(!is(D, "multimixSettings")){
+    stop("D must be an object of class multimixSettings.")
+  }
+  
+  n = nrow(D$dframe)
+  numClusters = D$numClusters
   x <- runif(n, 0, numClusters)
   x <- (n * x + 0.1)/(n + 0.2)
+  
   y <- ceiling(x)
   Init_grp = as.factor(y)
   Z <- model.matrix(~0 + Init_grp)
