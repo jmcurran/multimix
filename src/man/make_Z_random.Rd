@@ -4,11 +4,13 @@
 \alias{make_Z_random}
 \title{Start from random groups of similar size.}
 \usage{
-make_Z_random(D)
+make_Z_random(D, seed = NULL)
 }
 \arguments{
 \item{D}{an object of class \code{multimixSettings} -- see 
 \code{\link{data_organise}} for more information.}
+
+\item{seed}{a positive integer to use as a random number seed.}
 }
 \value{
 a matrix of dimension \eqn{n\times q}{n by q} where 

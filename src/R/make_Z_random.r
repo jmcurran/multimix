@@ -9,6 +9,7 @@
 #'
 #' @param D   an object of class \code{multimixSettings} -- see 
 #' \code{\link{data_organise}} for more information.
+#' @param seed a positive integer to use as a random number seed.
 #'
 #' @return a matrix of dimension \eqn{n\times q}{n by q} where 
 #' \eqn{n}{n} is the number of observations in \code{D$dframe}
@@ -23,9 +24,17 @@
 #' D = data_organise(cancer.df, numClusters = 2)
 #' Z = make_Z_random(D)
 #' table(Z)
-make_Z_random <- function(D) {
+make_Z_random <- function(D, seed = NULL) {
   if(!is(D, "multimixSettings")){
     stop("D must be an object of class multimixSettings.")
+  }
+  
+  if(!is.null(seed)){
+    if(seed <= 0){
+      stop("Seed needs to be a non-zero positive integer")
+    }else{
+      set.seed(seed)
+    }
   }
   
   n = nrow(D$dframe)
