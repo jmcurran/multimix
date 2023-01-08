@@ -37,7 +37,9 @@ mmain <- function(D, Z, P, eps = 1e-09) {
     P <- mStep(Z, D)
     zll <- eStep(P, D)
 
+    if(cyc == 30) browser()
     Z <- zll$Z
+    cat(paste0("Iteration: ", cyc, " LL: ", zll$llik, "\n"))
     deltall <- zll$llik - llik
 
     if (deltall <= eps)
