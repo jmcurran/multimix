@@ -1,3 +1,4 @@
+
 #' The M(aximisation) step
 #'
 #' Uses the current group membership to estimate the probabilities.

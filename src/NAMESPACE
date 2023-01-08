@@ -2,9 +2,9 @@
 
 S3method(plot,multimixResults)
 S3method(print,multimixResults)
-export(P.to.Z)
 export(count.unique)
 export(data_organise)
+export(eStep)
 export(initParamList)
 export(left)
 export(mStep)

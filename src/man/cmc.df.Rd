@@ -12,7 +12,7 @@ A data.frame with 1473 rows and 10 columns:
 \item{eduh}{Husband's education}
 \item{nborn}{Number of children ever born}
 \item{islam}{Wife's religion}
-\item{working}{Wife's now working?}
+\item{working}{Wife is now working?}
 \item{husocc}{Husband's occupation}
 \item{sol}{Standard-of-living index}
 \item{medex}{Media exposure}
@@ -42,7 +42,7 @@ The variables 'edu', 'eduh' and 'sol' take values '1,2,3,4', #' they are
 ordinal with 1 = low and 4 = high. The variable 'husocc' takes the
 same 4 values, but it is not clear if the order has any significance.
 
-The variables 'islam', 'working', and 'medex' are binary (9,1)-valued with
+The variables 'islam', 'working', and 'medex' are binary-valued with
 0=Non-Islam, 1=Islam for 'islam';  0=Yes, 1=No for 'working'; and 0=Good, 
 1=Not good for 'medex'.
 

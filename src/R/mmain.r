@@ -28,7 +28,7 @@ mmain <- function(D, Z, P, eps = 1e-09) {
   colnames(results)[c(1, numClusters + 2)] = c("Log-likelihood", "Iteration")
   colnames(results)[2:(numClusters + 1)] = paste0("Pr(G", 1:numClusters, ")")
   cyc <- 0
-  zll <- P.to.Z(P, D)
+  zll <- eStep(P, D)
   Z <- zll$Z
   llik <- zll$llik
   repeat {
@@ -37,9 +37,9 @@ mmain <- function(D, Z, P, eps = 1e-09) {
     P <- mStep(Z, D)
     zll <- eStep(P, D)
 
-    if(cyc == 30) browser()
+    #if(cyc == 30) browser()
     Z <- zll$Z
-    cat(paste0("Iteration: ", cyc, " LL: ", zll$llik, "\n"))
+    #cat(paste0("Iteration: ", cyc, " LL: ", zll$llik, "\n"))
     deltall <- zll$llik - llik
 
     if (deltall <= eps)
