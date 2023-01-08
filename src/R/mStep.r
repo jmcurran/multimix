@@ -33,6 +33,11 @@ mStep <- function(Z, D) {
   ostat <- crossprod(W, D$ovals)
   ostat2 <- crossprod(W, D$ovals2)
   ovar <- ostat2 - ostat^2
+  
+  # if(any(ovar <= .Machine$double.eps)){
+  #   browser()
+  #   i = which(ovar <= .Machine$double.eps, arr.ind = TRUE)
+  # }
 
   cstat <- cstat2 <- cpstat <- list()
   for (i in seq_along(D$cdep)) {
