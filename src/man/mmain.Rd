@@ -19,7 +19,8 @@ exceeded the the algorithm will terminate.}
 }
 \value{
 an object of class \code{multimix results} which is a a list
-  containing three elements: the \eqn{Z}{Z} matrix, the \eqn{P}{P} matrix,
+  containing four elements: the \code{multmixSettings} object \code{D},
+  the \eqn{Z}{Z} matrix, the \eqn{P}{P} matrix,
   and a results matrix, called \code{results}, with \eqn{n}{n} rows and
   \eqn{numClusters}{numClusters} columns.
 }
