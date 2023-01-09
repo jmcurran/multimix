@@ -8,7 +8,8 @@
 #'   exceeded the the algorithm will terminate.
 #'
 #' @return an object of class \code{multimix results} which is a a list
-#'   containing three elements: the \eqn{Z}{Z} matrix, the \eqn{P}{P} matrix,
+#'   containing four elements: the \code{multmixSettings} object \code{D},
+#'   the \eqn{Z}{Z} matrix, the \eqn{P}{P} matrix,
 #'   and a results matrix, called \code{results}, with \eqn{n}{n} rows and
 #'   \eqn{numClusters}{numClusters} columns.
 #' @export
@@ -52,7 +53,7 @@ mmain <- function(D, Z, P, eps = 1e-09) {
 
     results[cyc, ] <- c(llik, P$pistat, cyc)
   }  #cyc
-  zpr <- list(Z = Z, P = P, results = results[1:(cyc - 1), ])
+  zpr <- setNames(list(D = D, Z = Z, P = P, results = results[1:(cyc - 1), ]))
   class(zpr) = "multimixResults"
   return(zpr)
 }
