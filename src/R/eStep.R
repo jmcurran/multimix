@@ -17,8 +17,10 @@ eStep <- function(P, D) {
   for (j in seq_len(D$numClusters)) {
 
     ## compute ollq
-    ldens <- dnorm(as.vector(D$ovals), mean = rep(P$ostat[j, ], rep(D$n, D$op)), sd = rep(sqrt(P$ovar)[j, ],
-      rep(D$n, D$op)), log = TRUE)
+    ldens <- dnorm(as.vector(D$ovals), 
+                   mean = rep(P$ostat[j, ], rep(D$n, D$op)), 
+                   sd = rep(sqrt(P$ovar[j, ]), rep(D$n, D$op)), 
+                   log = TRUE)
     lDENS <- matrix(ldens, nrow = D$n)
     ollq[, j] <- rowSums(lDENS)
 
