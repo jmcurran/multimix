@@ -22,3 +22,6 @@ Used to reduce array dimensions by replacing
 pair.index(11,17)
 pair.index(2,12)
 }
+\author{
+Murray Jorgensen
+}

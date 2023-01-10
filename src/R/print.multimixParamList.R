@@ -12,13 +12,14 @@
 #' proportions are rounded to 4 decimal places, means 2 significant digits, and variances 3 significant 
 #' digits
 #' @param ... additional arguments passed to \code{print}.
-#'
+#' @author James Curran
 #' @export
 print.multimixParamList = function(x, type = c("means", "vars"), digits = c(4, 2, 3), ...){
   
-  numCatVars = length(x$dstat)
-  numUVNVars = ncol(x$ostat)
-  numMVNVars = length(x$cstat)
+  numCatVars <- length(x$dstat)
+  numUVNVars <- ncol(x$ostat)
+  numMVNCells <- length(x$cstat)
+  numLocationCells <- length(x$lcstat)
   
   if(numCatVars > 0){
     cat(paste0("Categorical variables:\n"))
@@ -30,16 +31,16 @@ print.multimixParamList = function(x, type = c("means", "vars"), digits = c(4, 2
     cat(paste0("  ", paste0(colnames(x$ostat), collapse = ", "), "\n\n"))
   }
   
-  if(numMVNVars > 0){
+  if(numMVNCells > 0){
     cat(paste0("Multivariate normal variables:\n"))
-    cells = sapply(x$cstat, function(cell){
+    cells <- sapply(x$cstat, function(cell){
                      paste0('(', paste0(colnames(cell), collapse = ", "), ')\n')
                   })
     cat(paste0("  Cell ", 1:length(cells), ": ", cells))
     cat("\n")
   }
   
-  type = match.arg(type)
+  type <- match.arg(type)
   
   if(type == "means"){
     if(numCatVars > 0){
@@ -55,13 +56,38 @@ print.multimixParamList = function(x, type = c("means", "vars"), digits = c(4, 2
     
     if(numUVNVars > 0){
       cat("Cluster means for univariate continuous variables\n")
-      cat("===================================================================\n")
+      cat("=================================================\n")
       for(v in colnames(x$ostat)){
         cat(paste0("\nVariable ", v, ":\n"))
         print(signif(x$ostat[,v, drop = FALSE], digits = digits[2]))
         cat("\n")
       }
       cat("\n")
+    }
+    
+    if(numMVNCells > 0){
+      cat("Cluster means for multivariate continuous variables\n")
+      cat("=================================================+=\n")
+      for(cell in seq_along(x$cstat)){
+        cat(paste0("\nCell ", cell, ":\n"))
+        print(signif(x$cstat[[cell]], digits = digits[2]))
+        cat("\n")
+      }
+      cat("\n")
+    }
+    
+    if(numLocationCells > 0){
+      cat("Cluster means of  continuous variables of each component of the location model\n")
+      cat("==============================================================================\n")
+      for(cell in seq_along(x$lcstat)){
+        cat(paste0("\nCell ", cell, ":\n"))
+        for(comp in seq_along(x$lcstat[[cell]])){
+          cat(paste0("\nComponent ", comp, ":\n"))
+          print(signif(x$lcstat[[cell]][[comp]], digits = digits[2]))
+        cat("\n")
+        }
+        cat("\n")
+      }
     }
     
   }else{ ## vars

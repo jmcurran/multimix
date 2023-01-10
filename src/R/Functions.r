@@ -6,7 +6,7 @@
 #'
 #' @return the number of unique items in \code{x}.
 #' @export
-#'
+#' @author Murray Jorgensen
 #' @examples
 #' x = c(1, 2, 3)
 #' count.unique(x)
@@ -28,7 +28,8 @@ count.unique <- function(x) {
 #'
 #' @return integer scalar
 #' @export
-#'
+#' @author Murray Jorgensen
+#' 
 #' @examples
 #' pair.index(11,17)
 #' pair.index(2,12)
@@ -41,6 +42,7 @@ pair.index <- function(u, v) {
 #' @param N  positive integer scalar
 #'
 #' @return  positive integer scalar
+#' @author Murray Jorgensen
 #' @export
 #'
 #' @examples
@@ -57,6 +59,7 @@ right <- function(N) {
 #'
 #' @return  positive integer scalar
 #' @export
+#' @author Murray Jorgensen
 #'
 #' @examples
 #' left(131)

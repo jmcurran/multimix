@@ -14,6 +14,7 @@
 #'   \eqn{numClusters}{numClusters} columns.
 #' @export
 #' @importFrom stats model.matrix runif
+#' @author Murray Jorgensen
 #' @examples
 #' data(cancer.df)
 #' D <- data_organise(cancer.df, numClusters = 2)

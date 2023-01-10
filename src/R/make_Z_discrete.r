@@ -13,7 +13,8 @@
 #' @return a \code{matrix} whose entries are non-negative, and whose entries sum to 1.
 #' @importFrom stats model.matrix
 #' @export
-#'
+#' @author Murray Jorgensen
+
 #' @examples
 #' stage = scan(file = system.file('extdata', 'Stage.txt', package = 'multimix'))
 #' stage = stage - 2

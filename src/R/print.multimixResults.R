@@ -10,6 +10,7 @@
 #'
 #' @importFrom methods is
 #' @importFrom utils tail
+#' @author James Curran
 #' @export
 print.multimixResults = function(x, n = FALSE, ...) {
   if (!is(x, "multimixResults")) {

@@ -48,7 +48,7 @@
 #'    \item{\code{numClusters}}{ --- the number of clusters in the model.}
 #' }
 #' @export
-#'
+#' @author Murray Jorgensen
 #' @examples
 #' data(cancer.df)
 #' D = data_organise(cancer.df, numClusters = 2)
@@ -74,8 +74,13 @@ data_organise <- function(dframe,
   
   md <- discvar & !ld
   mc <- !discvar & !lc
-  oc <- mc
-  oc[unlist(cdep)] <- FALSE  # oc is dummy for continuous variables without local associations
+  # oc <- mc
+  # oc[unlist(cdep)] <- FALSE  # oc is dummy for continuous variables without local associations
+  # browser()
+  oc <- setdiff(seq_len(v)[mc], unlist(cdep))
+  
+  
+  
   olink <- seq_len(v)[oc]  # vector of continuous columns without local associations
   dlink <- seq_len(v)[md]  # vector of discrete columns outside location cells
   clink <- seq_len(v)[mc]  # vector of continuous columns outside location cells  

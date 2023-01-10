@@ -21,3 +21,6 @@ a \code{list} containing two elements: a \code{matrix} named
 \description{
 The E(xpectation) step
 }
+\author{
+Murray Jorgensen
+}

@@ -22,3 +22,6 @@ count.unique(x)
 x = c(1, 1, 1, 2, 3)
 count.unique(x)
 }
+\author{
+Murray Jorgensen
+}

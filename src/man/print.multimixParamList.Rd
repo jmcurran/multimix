@@ -26,3 +26,6 @@ digits}
 \description{
 S3 printing method for for multimix parameter results
 }
+\author{
+James Curran
+}

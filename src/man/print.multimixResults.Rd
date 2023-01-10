@@ -20,3 +20,6 @@ number of actual iterations, the output will be truncated.}
 \description{
 S3 method for the printing of multimix results
 }
+\author{
+James Curran
+}

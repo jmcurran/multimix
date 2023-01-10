@@ -24,3 +24,6 @@ Multimix FORTRAN output.
 Z <- make_Z_fortran(system.file('extdata', 'GROUPS-BP-Multimixf90.OUT', 
                     package = 'multimix'))
 }
+\author{
+Murray Jorgensen
+}

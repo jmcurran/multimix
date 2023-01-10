@@ -10,6 +10,7 @@
 #' \code{llik} containing the current value of the log-likelihood.
 #' @importFrom stats dnorm
 #' @importFrom mvtnorm dmvnorm
+#' @author Murray Jorgensen
 #' @export
 eStep <- function(P, D) {
   ollq <- cll <- dllq <- ldllq <- lcll <- matrix(0, nrow = D$n, ncol = D$numClusters)

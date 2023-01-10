@@ -36,3 +36,6 @@ P <- initParamList(D,Z)
 zpr <- mmain(D,Z,P)
 zpr
 }
+\author{
+Murray Jorgensen
+}

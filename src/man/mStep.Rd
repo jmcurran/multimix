@@ -24,3 +24,6 @@ an object of class \code{multimixParamList}---see
 \description{
 Uses the current group membership to estimate the probabilities.
 }
+\author{
+Murray Jorgensen
+}

@@ -75,3 +75,6 @@ Prepare data for use with multimix
 data(cancer.df)
 D = data_organise(cancer.df, numClusters = 2)
 }
+\author{
+Murray Jorgensen
+}

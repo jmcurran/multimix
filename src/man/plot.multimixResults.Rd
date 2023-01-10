@@ -17,3 +17,6 @@ each call, and it is unlikely that this will have the desired effect.}
 \description{
 S3 method for plotting multimix resuls objects
 }
+\author{
+James Curran
+}

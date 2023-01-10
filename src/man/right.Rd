@@ -19,3 +19,6 @@ Map integer index N>0 back to right member of generating pair.
 right(131)
 right(57)
 }
+\author{
+Murray Jorgensen
+}

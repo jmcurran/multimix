@@ -11,7 +11,7 @@
 #' @return a matrix containing a \eqn{Z}{Z} matrix.
 #' @importFrom utils read.table
 #' @export
-#'
+#' @author Murray Jorgensen
 #' @examples
 #' Z <- make_Z_fortran(system.file('extdata', 'GROUPS-BP-Multimixf90.OUT', 
 #'                     package = 'multimix'))

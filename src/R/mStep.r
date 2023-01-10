@@ -13,6 +13,7 @@
 #'
 #' @return an object of class \code{multimixParamList}---see 
 #' \code{\link{initParamList}} for more information.
+#' @author Murray Jorgensen
 #' @export
 mStep <- function(Z, D) {
   pistat <- colMeans(Z)

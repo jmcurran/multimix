@@ -1,3 +1,4 @@
+#' @author James Curran
 setNames = function(mmResObj){
   numGroups = ncol(mmResObj$Z)
   colnames(mmResObj$Z) = paste0("Pr(x[i,] in G", 1:numGroups, ")")
@@ -13,6 +14,16 @@ setNames = function(mmResObj){
   
   if(ncol(mmResObj$P$ostat) > 0){
     rownames(mmResObj$P$ostat) = paste0("G", 1:numGroups, ":")
+  }
+  
+  for(cell in seq_along(mmResObj$P$cstat)){
+    rownames(mmResObj$P$cstat[[cell]]) = paste0("G", 1:numGroups, ":")
+  }
+  
+  for(cell in seq_along(mmResObj$P$lcstat)){
+    for(comp in seq_along(mmResObj$P$lcstat[[cell]])){
+      rownames(mmResObj$P$lcstat[[cell]][[comp]]) = paste0("G", 1:numGroups, ":")
+    }
   }
 
   return(mmResObj)

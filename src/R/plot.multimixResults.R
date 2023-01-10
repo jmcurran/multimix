@@ -7,7 +7,7 @@
 #' each call, and it is unlikely that this will have the desired effect.
 #' 
 #' @importFrom graphics abline axis box legend lines par
-#'
+#' @author James Curran
 #' @export
 plot.multimixResults = function(x, ...){
   oldPar = par(mfrow = c(2, 1), # two plots, one on each row
