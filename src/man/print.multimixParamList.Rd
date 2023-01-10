@@ -4,11 +4,22 @@
 \alias{print.multimixParamList}
 \title{S3 printing method for for multimix parameter results}
 \usage{
-\method{print}{multimixParamList}(x, ...)
+\method{print}{multimixParamList}(x, type = c("means", "vars"), digits = c(4, 2, 3), ...)
 }
 \arguments{
 \item{x}{an object of class \code{multimixParamResults} -- see 
 \code{\link{initParamList}} for more information.}
+
+\item{type}{the statistic you want displayed. If \code{means} then the cluster
+means will be displayed for each univariate continuous variable, the cluster proportions
+for each level of a categorical variable, and the mean vector for each cluster and each
+multivariate normal variable.}
+
+\item{digits}{a vector of length 3. The first value determines how many decimal places to 
+round categorical proportions to. The second value determines how many significant digits to 
+display means to, and the third how many siginificant digits to display variances to. By default
+proportions are rounded to 4 decimal places, means 2 significant digits, and variances 3 significant 
+digits}
 
 \item{...}{additional arguments passed to \code{print}.}
 }
