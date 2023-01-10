@@ -1,4 +1,3 @@
-
 #' The M(aximisation) step
 #'
 #' Uses the current group membership to estimate the probabilities.
@@ -38,10 +37,6 @@ mStep <- function(Z, D) {
     #browser()
     i = which(ovar <= .Machine$double.eps, arr.ind = TRUE)
     ovar[i] = .Machine$double.eps
-    msg = paste0("Some variances have been replaced with machine precision to ",
-                 "avoid divide by zero issues. This may have serious consequences.",
-                 collapse = "\n")
-    warning(msg)
   }
 
   cstat <- cstat2 <- cpstat <- list()
