@@ -48,10 +48,11 @@ mStep <- function(Z, D) {
 
   lcstat <- lcstat2 <- lcpstat <- list()
   for (i in seq_along(D$lcdep)) {
+    lcstat[[i]] <- lcstat2[[i]] <- lcpstat[[i]] <- list()
     for (j in seq_len(D$ldlevs[i])) {
       group <- D$ldvals[[i]][, j] == 1
       gtot <- colSums(W[group, ])  ### or maybe pmin(colsums(W[group,]), minpstar)
-      WW <- W[group, ] %*% diag(1/gtot)
+      WW <- W[group, ] %*% diag(1 / gtot)
       lcstat[[i]][[j]] <- crossprod(WW, D$lcvals[[i]][group, ])
       lcstat2[[i]][[j]] <- crossprod(WW, D$lcvals2[[i]][group, ])
       lcpstat[[i]][[j]] <- crossprod(WW, D$lcprods[[i]][group, ])
