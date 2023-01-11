@@ -91,7 +91,55 @@ print.multimixParamList = function(x, type = c("means", "vars"), digits = c(4, 2
     }
     
   }else{ ## vars
+    # if(numCatVars > 0){
+    #   cat("Category proportions by cluster and level for categorical variables\n")
+    #   cat("===================================================================\n")
+    #   for(v in names(x$dstat)){
+    #     cat(paste0("\nVariable ", v, ":\n"))
+    #     print(round(x$dstat[[v]], digits = digits[1]))
+    #     cat("\n")
+    #   }
+    #   cat("\n")
+    # }
     
+    if(numUVNVars > 0){
+      cat("Cluster variances for univariate continuous variables\n")
+      cat("================++++=================================\n")
+      for(v in colnames(x$ovar)){
+        cat(paste0("\nVariable ", v, ":\n"))
+        print(signif(x$ovar[,v, drop = FALSE], digits = digits[2]))
+        cat("\n")
+      }
+      cat("\n")
+    }
+    
+    if(numMVNCells > 0){
+      cat("Cluster variances for multivariate continuous variables\n")
+      cat("=======================================================\n")
+      for(cell in seq_along(x$MVMV)){
+        cat(paste0("\nCell ", cell, ":\n"))
+        for(group in seq_along(x$MVMV[[cell]])){
+          cat(paste0("Group ", group, ":\n"))
+          print(signif(x$MVMV[[cell]][[group]], digits = digits[2]))
+          cat("\n")
+        }
+      }
+      cat("\n")
+    }
+    
+    if(numLocationCells > 0){
+      cat("Cluster variances of  continuous variables of each component of the location model\n")
+      cat("==================================================================================\n")
+      for(cell in seq_along(x$lcstat)){
+        cat(paste0("\nCell ", cell, ":\n"))
+        for(comp in seq_along(x$lcstat[[cell]])){
+          cat(paste0("\nComponent ", comp, ":\n"))
+          print(signif(x$lcvar[[cell]][[comp]], digits = digits[2]))
+          cat("\n")
+        }
+        cat("\n")
+      }
+    }
   }
 
 }
