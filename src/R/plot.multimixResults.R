@@ -1,4 +1,4 @@
-#' S3 method for plotting multimix resuls objects
+#' S3 method for plotting multimix results objects
 #'
 #' @param x an object of class \code{multimixResults} -- see
 #' \code{\link{mmain}} for more information.
@@ -38,10 +38,10 @@ plot.multimixResults = function(x, ...){
   
 
   par(mai = c(0.7, 0.7, 0, 0.1))
-  groupProbs = x$results[, -c(1, ncol(x$results))]
-  numGroups = ncol(groupProbs)
+  clusterProbs = x$results[, -c(1, ncol(x$results))]
+  numClusters = ncol(clusterProbs)
   
-  plot(1:numIter, groupProbs[ ,1], 
+  plot(1:numIter, clusterProbs[ ,1], 
        col = 1, 
        lwd = 1.5,
        type = "l",
@@ -56,15 +56,15 @@ plot.multimixResults = function(x, ...){
   axis(1, at = c(1, pretty(1:numIter), numIter), cex.axis = 0.7)
   box()
   
-  for(i in 2:numGroups){
-    lines(1:numIter, groupProbs[, i], col = i, lwd = 2)
+  for(i in 2:numClusters){
+    lines(1:numIter, clusterProbs[, i], col = i, lwd = 2)
   }
   
   legend("topright",
-         col = 1:numGroups,
+         col = 1:numClusters,
          lty = 1,
          lwd = 1.5,
-         legend = paste0("Group ", 1:numGroups),
+         legend = paste0("Group ", 1:numClusters),
          cex = 0.7,
          bty = "n")
   

@@ -2,7 +2,7 @@
 % Please edit documentation in R/plot.multimixResults.R
 \name{plot.multimixResults}
 \alias{plot.multimixResults}
-\title{S3 method for plotting multimix resuls objects}
+\title{S3 method for plotting multimix results objects}
 \usage{
 \method{plot}{multimixResults}(x, ...)
 }
@@ -15,7 +15,7 @@ because there are two calls to plot, the \ldots arguments will be passed to
 each call, and it is unlikely that this will have the desired effect.}
 }
 \description{
-S3 method for plotting multimix resuls objects
+S3 method for plotting multimix results objects
 }
 \author{
 James Curran

@@ -10,7 +10,7 @@
 \item{x}{an object of class \code{multimixResults}---see \code{\link{mmain}}
 for a description.}
 
-\item{n}{display the last few iterations of the group probabilities. If 
+\item{n}{display the last few iterations of the cluster probabilities. If 
 \code{TRUE} then the last 5 iterations will be displayed by default.
 Alternatively, a positive integer can be supplied. If this exceeds the 
 number of actual iterations, the output will be truncated.}

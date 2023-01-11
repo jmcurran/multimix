@@ -79,11 +79,14 @@ print.multimixParamList = function(x, type = c("means", "vars"), digits = c(4, 2
     if(numLocationCells > 0){
       cat("Cluster means of  continuous variables of each component of the location model\n")
       cat("==============================================================================\n")
+      cellNames = names(x$lcstat)
       for(cell in seq_along(x$lcstat)){
-        cat(paste0("\nCell ", cell, ":\n"))
-        for(comp in seq_along(x$lcstat[[cell]])){
-          cat(paste0("\nComponent ", comp, ":\n"))
-          print(signif(x$lcstat[[cell]][[comp]], digits = digits[2]))
+        #browser()
+        cat(paste0("\n", cellNames[cell], ":"))
+        Levs = names(x$lcstat[[cell]])
+        for(lev in seq_along(x$lcstat[[cell]])){
+          cat(paste0("\n  ", Levs[lev], ":\n"))
+          print(signif(x$lcstat[[cell]][[lev]], digits = digits[2]))
         cat("\n")
         }
         cat("\n")
@@ -118,9 +121,9 @@ print.multimixParamList = function(x, type = c("means", "vars"), digits = c(4, 2
       cat("=======================================================\n")
       for(cell in seq_along(x$MVMV)){
         cat(paste0("\nCell ", cell, ":\n"))
-        for(group in seq_along(x$MVMV[[cell]])){
-          cat(paste0("Group ", group, ":\n"))
-          print(signif(x$MVMV[[cell]][[group]], digits = digits[2]))
+        for(cluster in seq_along(x$MVMV[[cell]])){
+          cat(paste0("Cluster ", cluster, ":\n"))
+          print(signif(x$MVMV[[cell]][[cluster]], digits = digits[2]))
           cat("\n")
         }
       }
@@ -130,11 +133,14 @@ print.multimixParamList = function(x, type = c("means", "vars"), digits = c(4, 2
     if(numLocationCells > 0){
       cat("Cluster variances of  continuous variables of each component of the location model\n")
       cat("==================================================================================\n")
+      cellNames = names(x$lcstat)
       for(cell in seq_along(x$lcstat)){
-        cat(paste0("\nCell ", cell, ":\n"))
-        for(comp in seq_along(x$lcstat[[cell]])){
-          cat(paste0("\nComponent ", comp, ":\n"))
-          print(signif(x$lcvar[[cell]][[comp]], digits = digits[2]))
+        #browser()
+        cat(paste0("\n", cellNames[cell], ":"))
+        Levs = names(x$lcstat[[cell]])
+        for(lev in seq_along(x$lcstat[[cell]])){
+          cat(paste0("\n  ", Levs[lev], ":\n"))
+          print(signif(x$LMV[[cell]][[lev]], digits = digits[2]))
           cat("\n")
         }
         cat("\n")

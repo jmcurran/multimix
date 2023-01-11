@@ -233,6 +233,7 @@ initParamList <- function(D, Z) {
             pistat = pistat,
             W = W
   )
+  P = setPNames(P, D)
 
   class(P) = "multimixParamList"
   return(P)
