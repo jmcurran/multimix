@@ -156,7 +156,7 @@ print.multimixParamList = function(x, type = c("means", "vars"), byLevel = FALSE
       cat("Cluster variances of  continuous variables of each component of the location model\n")
       cat("==================================================================================\n")
       
-      if(byLevel){
+      ##if(byLevel){
         cellNames = names(x$lcstat)
         for(cell in seq_along(x$lcstat)){
           #browser()
@@ -169,9 +169,9 @@ print.multimixParamList = function(x, type = c("means", "vars"), byLevel = FALSE
           }
           cat("\n")
         }
-      }else{ ## by cluster
+      ##}else{ ## by cluster
         
-      }
+      ##}
     }
   }
 
