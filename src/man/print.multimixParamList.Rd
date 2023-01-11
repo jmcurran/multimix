@@ -4,7 +4,7 @@
 \alias{print.multimixParamList}
 \title{S3 printing method for for multimix parameter results}
 \usage{
-\method{print}{multimixParamList}(x, type = c("means", "vars"), digits = c(4, 2, 3), ...)
+\method{print}{multimixParamList}(x, type = c("means", "vars"), byLevel = FALSE, digits = c(4, 2, 3), ...)
 }
 \arguments{
 \item{x}{an object of class \code{multimixParamResults} -- see 
@@ -14,6 +14,10 @@
 means will be displayed for each univariate continuous variable, the cluster proportions
 for each level of a categorical variable, and the mean vector for each cluster and each
 multivariate normal variable.}
+
+\item{byLevel}{if \code{TRUE} then location model summary stats will be printed by the 
+level of the factor in the location model. Otheriwse (default), they will be printed cluster
+by cluster}
 
 \item{digits}{a vector of length 3. The first value determines how many decimal places to 
 round categorical proportions to. The second value determines how many significant digits to 

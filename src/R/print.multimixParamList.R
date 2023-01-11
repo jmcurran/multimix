@@ -6,6 +6,9 @@
 #' means will be displayed for each univariate continuous variable, the cluster proportions
 #' for each level of a categorical variable, and the mean vector for each cluster and each
 #' multivariate normal variable.
+#' @param byLevel if \code{TRUE} then location model summary stats will be printed by the 
+#' level of the factor in the location model. Otheriwse (default), they will be printed cluster
+#' by cluster
 #' @param digits a vector of length 3. The first value determines how many decimal places to 
 #' round categorical proportions to. The second value determines how many significant digits to 
 #' display means to, and the third how many siginificant digits to display variances to. By default
@@ -14,7 +17,7 @@
 #' @param ... additional arguments passed to \code{print}.
 #' @author James Curran
 #' @export
-print.multimixParamList = function(x, type = c("means", "vars"), digits = c(4, 2, 3), ...){
+print.multimixParamList = function(x, type = c("means", "vars"), byLevel = FALSE, digits = c(4, 2, 3), ...){
   
   numCatVars <- length(x$dstat)
   numUVNVars <- ncol(x$ostat)
@@ -79,17 +82,36 @@ print.multimixParamList = function(x, type = c("means", "vars"), digits = c(4, 2
     if(numLocationCells > 0){
       cat("Cluster means of  continuous variables of each component of the location model\n")
       cat("==============================================================================\n")
+      
       cellNames = names(x$lcstat)
-      for(cell in seq_along(x$lcstat)){
-        #browser()
-        cat(paste0("\n", cellNames[cell], ":"))
-        Levs = names(x$lcstat[[cell]])
-        for(lev in seq_along(x$lcstat[[cell]])){
-          cat(paste0("\n  ", Levs[lev], ":\n"))
-          print(signif(x$lcstat[[cell]][[lev]], digits = digits[2]))
-        cat("\n")
+      if(byLevel){
+        for(cell in seq_along(x$lcstat)){
+          #browser()
+          cat(paste0("\n", cellNames[cell], ":"))
+          Levs = names(x$lcstat[[cell]])
+          for(lev in seq_along(x$lcstat[[cell]])){
+            cat(paste0("\n  ", Levs[lev], ":\n"))
+            print(signif(x$lcstat[[cell]][[lev]], digits = digits[2]))
+            cat("\n")
+          }
+          cat("\n")
         }
-        cat("\n")
+      }else{
+        for(cell in seq_along(x$lcstat)){
+          Levs = names(x$lcstat[[cell]])
+          numClusters = nrow(x$lcstat[[cell]][[1]]) # I don't like this but it will do for the time being
+          #browser()
+          
+          for(cluster in seq_len(numClusters)){
+            mat = do.call("rbind", lapply(x$lcstat[[cell]], function(m){m[cluster, , drop = FALSE]}))
+            rownames(mat) = Levs
+            cat(paste0("C", cluster, ":\n"))
+            print(signif(mat, digits = digits[2]))
+            cat("\n")
+          }
+          cat("\n")
+          #browser()
+        }
       }
     }
     
@@ -133,17 +155,22 @@ print.multimixParamList = function(x, type = c("means", "vars"), digits = c(4, 2
     if(numLocationCells > 0){
       cat("Cluster variances of  continuous variables of each component of the location model\n")
       cat("==================================================================================\n")
-      cellNames = names(x$lcstat)
-      for(cell in seq_along(x$lcstat)){
-        #browser()
-        cat(paste0("\n", cellNames[cell], ":"))
-        Clusters = names(x$LMV[[cell]])
-        for(cluster in seq_along(x$LMV[[cell]])){
-          cat(paste0("\n  C", cluster, ":\n"))
-          print(signif(x$LMV[[cell]][[cluster]], digits = digits[2]))
+      
+      if(byLevel){
+        cellNames = names(x$lcstat)
+        for(cell in seq_along(x$lcstat)){
+          #browser()
+          cat(paste0("\n", cellNames[cell], ":"))
+          Clusters = names(x$LMV[[cell]])
+          for(cluster in seq_along(x$LMV[[cell]])){
+            cat(paste0("\n  C", cluster, ":\n"))
+            print(signif(x$LMV[[cell]][[cluster]], digits = digits[2]))
+            cat("\n")
+          }
           cat("\n")
         }
-        cat("\n")
+      }else{ ## by cluster
+        
       }
     }
   }
