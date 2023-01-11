@@ -137,10 +137,10 @@ print.multimixParamList = function(x, type = c("means", "vars"), digits = c(4, 2
       for(cell in seq_along(x$lcstat)){
         #browser()
         cat(paste0("\n", cellNames[cell], ":"))
-        Levs = names(x$lcstat[[cell]])
-        for(lev in seq_along(x$lcstat[[cell]])){
-          cat(paste0("\n  ", Levs[lev], ":\n"))
-          print(signif(x$LMV[[cell]][[lev]], digits = digits[2]))
+        Clusters = names(x$LMV[[cell]])
+        for(cluster in seq_along(x$LMV[[cell]])){
+          cat(paste0("\n  C", cluster, ":\n"))
+          print(signif(x$LMV[[cell]][[cluster]], digits = digits[2]))
           cat("\n")
         }
         cat("\n")

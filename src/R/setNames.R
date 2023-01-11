@@ -34,12 +34,16 @@ setPNames = function(P, D){
       contVarNames = cellVarNames[-1]
       discVarLevs = levels(D$dframe[, discVarName])
       
-      names(P$LMV[[cell]]) = discVarLevs
+      names(P$LMV[[cell]]) = paste0("C", 1:numClusters)
       names(P$lcstat[[cell]]) = discVarLevs 
       
-      for(lev in seq_along(P$LMV[[cell]])){
-        rownames(P$LMV[[cell]][[lev]]) =
-          colnames(P$LMV[[cell]][[lev]]) = contVarNames
+      for(cluster in seq_along(P$LMV[[cell]])){
+        rownames(P$LMV[[cell]][[cluster]]) =
+          colnames(P$LMV[[cell]][[cluster]]) = contVarNames
+      }
+      
+      for(lev in seq_along(P$lcstat[[cell]])){
+        colnames(P$lcstat[[cell]][[lev]]) = contVarNames
         rownames(P$lcstat[[cell]][[lev]]) = paste0("C", 1:numClusters, ":")
       }
       
